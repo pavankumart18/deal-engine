@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Deal Structuring Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M2 17L12 22L22 17" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M2 12L12 17L22 12" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <span>Deal Engine</span>
+                </div>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search deals...">
+                </div>
+            </div>
+            <div class="deal-list" id="dealList">
+                <!-- Deal items injected here -->
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-nav">
+                <h1>Deal Intelligence Hub</h1>
+                <div class="header-actions" style="display: flex; align-items: center; gap: 24px;">
+                    <a href="story.html" class="btn-primary"
+                        style="background: var(--accent-blue); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; border: 1px solid var(--accent-blue); box-shadow: 0 2px 4px rgba(0,0,0,0.1);">View
+                        Analytics Story</a>
+                    <div class="user-profile">
+                        <span class="avatar">DA</span>
+                        <span class="role">Deal Architect</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body" id="dealDetails" style="display: none;">
+                <div class="header-section glass-panel">
+                    <div class="title-row">
+                        <h2 id="dealHeadline">HealthCenter 0 - Netherlands</h2>
+                        <span class="badge" id="dealIdBadge">OPP-2000</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <div class="metric-card">
+                            <span class="label">Complexity Status</span>
+                            <span class="value" id="complexityValue">Requires Routing</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="label">Approvals Required</span>
+                            <span class="value highlight" id="approvalsValue">VP Sales</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="label">Confidence Score</span>
+                            <div class="score-ring">
+                                <span class="value" id="confidenceValue">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Left Column -->
+                    <div class="col-left">
+                        <div class="glass-panel rec-panel">
+                            <div class="panel-header">
+                                <h3>Agent Recommendation</h3>
+                            </div>
+                            <div class="recommended-card">
+                                <div class="rec-scenario">
+                                    <span class="label">Best Scenario</span>
+                                    <span class="big-value" id="recScenario">Scenario B</span>
+                                </div>
+                                <p class="executive-narrative" id="execNarrative"></p>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel">
+                            <div class="panel-header">
+                                <h3>Scenario Evaluation</h3>
+                            </div>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Scenario</th>
+                                            <th>Margin (%)</th>
+                                            <th>Lifetime Profit</th>
+                                            <th>CFO Esc.</th>
+                                            <th>Tender Flag</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="scenarioTableBody">
+                                        <!-- Table rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-right">
+                        <div class="glass-panel">
+                            <div class="panel-header">
+                                <h3>Governance & Risk</h3>
+                            </div>
+                            <div class="issues-summary">
+                                <div class="issue-pill red">
+                                    <span class="count" id="countRed">0</span>
+                                    <span class="label">RED FLAGS</span>
+                                </div>
+                                <div class="issue-pill amber">
+                                    <span class="count" id="countAmber">0</span>
+                                    <span class="label">AMBER FLAGS</span>
+                                </div>
+                                <div class="issue-pill green">
+                                    <span class="count" id="countGreen">0</span>
+                                    <span class="label">CLEAN</span>
+                                </div>
+                            </div>
+                            <ul class="issues-list" id="issuesList">
+                                <!-- list of issues -->
+                            </ul>
+                        </div>
+
+                        <div class="glass-panel">
+                            <div class="panel-header">
+                                <h3>System Traceability</h3>
+                            </div>
+                            <div class="trace-box">
+                                <p>Audit Records Generated:</p>
+                                <ul class="audit-list" id="auditList">
+                                    <!-- audits -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState">
+                <div class="pulse-ring"></div>
+                <h2>Select an active deal from the queue</h2>
+                <p>Autonomous Deal Structuring Agent analyzing 100 opportunities...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+issue_id,severity,opportunity_id,customer_id,source_table,rule_id,field,current_value,expected_value,description,recommended_action
+e5ec07da-f20b-4cf3-bef8-d69b6efb10a2,AMBER,OPP-2000,CUST-1000,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.24,<=0.20,High discount level,Require VP approval
+42f62402-1073-4ec9-934f-e1c84ee4a16e,AMBER,OPP-2000,CUST-1000,sap_pricing,R_DEPRECATED_SKU,deprecated_flag,True,False,Opportunity includes deprecated SKU,Suggest upgrade to current model
+f4e059d1-db5f-4e5b-9d80-134d4229575e,AMBER,OPP-2001,CUST-1001,sap_pricing,R_DEPRECATED_SKU,deprecated_flag,True,False,Opportunity includes deprecated SKU,Suggest upgrade to current model
+127a06ee-2a4d-4382-b695-8f78a6d15e50,AMBER,OPP-2009,CUST-1009,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.22,<=0.20,High discount level,Require VP approval
+0071b5f7-a1a6-4e9b-9189-da159d53f649,RED,OPP-2012,CUST-1012,scenarios,R_LOW_MARGIN,gross_margin_pct,0.286,>=0.35,Margin below UK floor,Increase price or bundle
+9ebc8292-4c6e-4269-ba27-bece36039be8,RED,OPP-2019,CUST-1019,opportunities,R_HIGH_DISC,requested_instrument_discount_pct,0.45,<=0.30,Discount exceeds hard limit,Require CFO approval
+e97826bd-0c6a-4644-8bf9-ce919234cb50,AMBER,OPP-2022,CUST-1022,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.24,<=0.20,High discount level,Require VP approval
+b8d8dc2e-1a90-46e9-b8dc-71db298dbfc7,AMBER,OPP-2023,CUST-1023,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.22,<=0.20,High discount level,Require VP approval
+181c3dea-06ec-47a5-a67a-7ad6315413e8,AMBER,OPP-2025,CUST-1025,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.24,<=0.20,High discount level,Require VP approval
+236ebfd2-c8df-4259-9c8d-4bc828a45f9b,RED,OPP-2028,CUST-1028,scenarios,R_LOW_MARGIN,gross_margin_pct,0.316,>=0.35,Margin below UK floor,Increase price or bundle
+772b988f-a7bf-4cd7-857f-51fe00736f83,AMBER,OPP-2034,CUST-1034,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.24,<=0.20,High discount level,Require VP approval
+bdc57ed9-48b8-4cde-9d5b-6911bc79a57f,AMBER,OPP-2035,CUST-1035,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.21,<=0.20,High discount level,Require VP approval
+067c912f-46b0-4b7f-961f-b74995d6f809,RED,OPP-2036,CUST-1036,opportunities,R_HIGH_DISC,requested_instrument_discount_pct,0.45,<=0.30,Discount exceeds hard limit,Require CFO approval
+7e2f073f-2fbc-4bdf-bc7b-78daa50134b1,RED,OPP-2037,CUST-1037,scenarios,R_LOW_MARGIN,gross_margin_pct,0.224,>=0.35,Margin below Switzerland floor,Increase price or bundle
+4694a470-ffc9-4b2b-b2e0-e4642d5f2776,RED,OPP-2037,CUST-1037,opportunities,R_HIGH_DISC,requested_instrument_discount_pct,0.45,<=0.30,Discount exceeds hard limit,Require CFO approval
+9f6c00ee-9af1-41dd-acfd-91e05e9e6eb6,AMBER,OPP-2038,CUST-1038,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.24,<=0.20,High discount level,Require VP approval
+051dd110-a2db-470f-a0e2-03fb7e8d5343,AMBER,OPP-2039,CUST-1039,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.25,<=0.20,High discount level,Require VP approval
+d82c6a95-6fdb-4143-9f57-2a930c8eb4e7,AMBER,OPP-2044,CUST-1044,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.24,<=0.20,High discount level,Require VP approval
+251b1c17-3c86-4197-a410-12051b446bed,RED,OPP-2045,CUST-1045,scenarios,R_LOW_MARGIN,gross_margin_pct,0.24,>=0.35,Margin below UK floor,Increase price or bundle
+c762440b-0d64-4e73-ba7b-a0a7f6708e3b,RED,OPP-2045,CUST-1045,opportunities,R_HIGH_DISC,requested_instrument_discount_pct,0.45,<=0.30,Discount exceeds hard limit,Require CFO approval
+0394afac-e74f-4975-b020-64a4ef82b100,AMBER,OPP-2046,CUST-1046,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.22,<=0.20,High discount level,Require VP approval
+1b62654b-4f2d-4dd9-a439-4845f14260e1,AMBER,OPP-2047,CUST-1047,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.22,<=0.20,High discount level,Require VP approval
+0e91a928-d080-4509-8dad-1e36c493004b,AMBER,OPP-2048,CUST-1048,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.22,<=0.20,High discount level,Require VP approval
+2d893692-8478-407b-aa30-1b178340fd4a,AMBER,OPP-2050,CUST-1050,opportunities,R_TENDER,tender_flag,True,False,EU Public Hospital Tender parameters met,Engage Legal for Tender Review
+ca371f68-75f6-4e7c-aac6-6b16dd1aa286,RED,OPP-2052,CUST-1052,scenarios,R_LOW_MARGIN,gross_margin_pct,0.325,>=0.35,Margin below Canada floor,Increase price or bundle
+05e362eb-051b-41f4-afbb-55fa9472f99e,RED,OPP-2052,CUST-1052,opportunities,R_HIGH_DISC,requested_instrument_discount_pct,0.45,<=0.30,Discount exceeds hard limit,Require CFO approval
+0f42e539-9ab4-400e-b053-c3d8889505fa,RED,OPP-2055,CUST-1055,scenarios,R_LOW_MARGIN,gross_margin_pct,0.337,>=0.35,Margin below Canada floor,Increase price or bundle
+20550bd5-7ec7-4aef-a18a-5da35a8defd3,AMBER,OPP-2057,CUST-1057,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.22,<=0.20,High discount level,Require VP approval
+078b6c4d-6aac-43d9-a18e-51f9c6611a41,AMBER,OPP-2058,CUST-1058,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.23,<=0.20,High discount level,Require VP approval
+76afb53b-226c-4956-a88e-b736eb9daca1,RED,OPP-2060,CUST-1060,scenarios,R_LOW_MARGIN,gross_margin_pct,0.329,>=0.33,Margin below Netherlands floor,Increase price or bundle
+f8477d4e-38b3-4966-a94f-d8d791a140da,AMBER,OPP-2060,CUST-1060,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.23,<=0.20,High discount level,Require VP approval
+6fec8690-b615-482e-b68f-040a2c667010,RED,OPP-2063,CUST-1063,scenarios,R_LOW_MARGIN,gross_margin_pct,0.284,>=0.33,Margin below Spain floor,Increase price or bundle
+87b9f001-21af-4fe1-9f2b-f208184b273d,RED,OPP-2066,CUST-1066,scenarios,R_LOW_MARGIN,gross_margin_pct,0.299,>=0.33,Margin below Italy floor,Increase price or bundle
+922e1bf3-f60a-444e-8539-812b9e043e56,AMBER,OPP-2075,CUST-1075,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.21,<=0.20,High discount level,Require VP approval
+ddc3354e-1ba8-4ae3-a2b2-dbd4cb3eb60b,RED,OPP-2076,CUST-1076,scenarios,R_LOW_MARGIN,gross_margin_pct,0.288,>=0.33,Margin below Italy floor,Increase price or bundle
+22c8c428-d562-4ba1-a191-888d223c5709,RED,OPP-2080,CUST-1080,opportunities,R_HIGH_DISC,requested_instrument_discount_pct,0.4,<=0.30,Discount exceeds hard limit,Require CFO approval
+ea86f078-de81-4b5e-a777-735c2c3ed8c9,RED,OPP-2081,CUST-1081,opportunities,R_HIGH_DISC,requested_instrument_discount_pct,0.4,<=0.30,Discount exceeds hard limit,Require CFO approval
+53443cf2-0473-4d83-8bbe-9841211b1937,RED,OPP-2082,CUST-1082,opportunities,R_HIGH_DISC,requested_instrument_discount_pct,0.4,<=0.30,Discount exceeds hard limit,Require CFO approval
+8cfee6eb-55b0-4989-942a-5851f528fcec,RED,OPP-2083,CUST-1083,opportunities,R_HIGH_DISC,requested_instrument_discount_pct,0.4,<=0.30,Discount exceeds hard limit,Require CFO approval
+e57acce2-97dd-46a1-89c7-b83c1e8067d5,AMBER,OPP-2083,CUST-1083,opportunities,R_TENDER,tender_flag,True,False,EU Public Hospital Tender parameters met,Engage Legal for Tender Review
+d7ee25e4-6eff-4cd8-a606-f547a09a31f3,RED,OPP-2084,CUST-1084,opportunities,R_HIGH_DISC,requested_instrument_discount_pct,0.4,<=0.30,Discount exceeds hard limit,Require CFO approval
+f4271e71-d8c5-4b76-8555-8c06d3f43b12,AMBER,OPP-2084,CUST-1084,opportunities,R_TENDER,tender_flag,True,False,EU Public Hospital Tender parameters met,Engage Legal for Tender Review
+b6659ba3-9874-42b0-8409-30b3ff87d9e0,AMBER,OPP-2085,CUST-1085,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.25,<=0.20,High discount level,Require VP approval
+28a7107e-a317-4d01-862b-a0377e5fa814,RED,OPP-2087,CUST-1087,scenarios,R_LOW_MARGIN,gross_margin_pct,0.344,>=0.35,Margin below Switzerland floor,Increase price or bundle
+37751670-9d7d-4f11-9a1f-7988eb57661c,AMBER,OPP-2089,CUST-1089,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.23,<=0.20,High discount level,Require VP approval
+4f2ed3f8-c1d1-4d7a-ad2a-288539a8f812,AMBER,OPP-2090,CUST-1090,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.23,<=0.20,High discount level,Require VP approval
+af2d0fb4-8ed7-416b-aeee-6c621f98ee0f,AMBER,OPP-2097,CUST-1097,opportunities,R_MED_DISC,requested_instrument_discount_pct,0.25,<=0.20,High discount level,Require VP approval
+fa3a5fb2-e201-41d6-8fce-f88da60b737b,RED,OPP-2098,CUST-1098,scenarios,R_LOW_MARGIN,gross_margin_pct,0.291,>=0.35,Margin below UK floor,Increase price or bundle
+d0eca1a5-d0b8-4fbf-b43b-a8a6ab0909d7,AMBER,OPP-2009,CUST-1009,contracts,R_EXPIRED_ACTIVE,end_date,2025-12-29,Active contract should be in future,Ghost contract detected,Close out or renew contract in CRM
+626b0a65-3147-437d-8a0b-d8771945c663,AMBER,OPP-2058,CUST-1058,contracts,R_EXPIRED_ACTIVE,end_date,2026-01-15,Active contract should be in future,Ghost contract detected,Close out or renew contract in CRM
+e0a28755-0cfe-4b18-820b-b8a4f90ce8e3,AMBER,OPP-2064,CUST-1064,contracts,R_EXPIRED_ACTIVE,end_date,2025-12-29,Active contract should be in future,Ghost contract detected,Close out or renew contract in CRM
+f1d20f0f-54c4-43c9-b252-8ed41d826896,AMBER,OPP-2081,CUST-1081,contracts,R_EXPIRED_ACTIVE,end_date,2025-11-19,Active contract should be in future,Ghost contract detected,Close out or renew contract in CRM
+f4a51a43-37d0-4dec-b5b2-d3962eb43451,AMBER,OPP-2096,CUST-1096,contracts,R_EXPIRED_ACTIVE,end_date,2025-12-27,Active contract should be in future,Ghost contract detected,Close out or renew contract in CRM
+c1d184ba-e1e2-4886-9e1a-dc0e15ba7588,AMBER,OPP-2000,CUST-1000,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+2235e1ba-240d-4ecd-9f3e-317713425c39,AMBER,OPP-2001,CUST-1001,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:GBP,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+03f67a19-b4fb-4f6b-bf10-ff2ae9666339,AMBER,OPP-2002,CUST-1002,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+1313a620-1fd9-48f3-9fce-a56e4992c586,AMBER,OPP-2003,CUST-1003,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+81fd096b-c3f5-4912-9889-618753b22131,AMBER,OPP-2004,CUST-1004,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+f6eb5f15-9284-43e9-a118-62efb49ea3bb,AMBER,OPP-2005,CUST-1005,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+75cd5b2e-ecca-40da-909e-11342df7ae75,AMBER,OPP-2006,CUST-1006,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+d4ad21ff-0330-4946-b841-80dbe5583cae,AMBER,OPP-2007,CUST-1007,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+c1723162-e264-4315-afcb-b131c64a97f0,AMBER,OPP-2008,CUST-1008,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+fa6f600e-7b4f-4d73-ada3-1f2dcb7f2427,AMBER,OPP-2009,CUST-1009,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+e620bd19-4fb6-45ec-8652-8081baa83560,AMBER,OPP-2010,CUST-1009,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+677e3da4-3b66-462a-bcd7-f9ff385b3736,AMBER,OPP-2012,CUST-1012,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+94f5e58d-14fc-4e0e-82af-4e08c6e16b15,AMBER,OPP-2013,CUST-1013,sap_pricing,R_CURR_MISMATCH,currency,Opp:USD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+407e3e83-a1f6-48cc-87b8-3293bbff737b,AMBER,OPP-2014,CUST-1014,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+d329f75d-229f-4bc7-9bce-59afb85d0603,AMBER,OPP-2016,CUST-1016,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+0dc058c1-b713-4cd3-bbda-3883b1805ba2,AMBER,OPP-2018,CUST-1018,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+03208645-cb07-4c7f-b948-1f6919a3870c,AMBER,OPP-2019,CUST-1019,sap_pricing,R_CURR_MISMATCH,currency,Opp:GBP/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+4dc76872-ee71-4fac-a37f-da1b11efb979,AMBER,OPP-2020,CUST-1020,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+f9f6a3a2-57f5-4e7c-9633-09aa94605c2d,AMBER,OPP-2021,CUST-1021,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+a64a96be-66be-4f24-ae47-3e88ebec4489,AMBER,OPP-2022,CUST-1022,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+ffcb3483-1076-4259-aad2-78fc6ae533ad,AMBER,OPP-2023,CUST-1023,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+c23bcca9-8316-4cd9-846d-aafd5d86f06c,AMBER,OPP-2024,CUST-1024,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+76d2450d-08ea-40b2-8351-1dfc224f36cc,AMBER,OPP-2025,CUST-1025,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+5b8c8eee-788e-4df4-be84-c55cdd1cb653,AMBER,OPP-2026,CUST-1026,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+2aa813ec-4285-4cbb-8029-a2ef1ab57ae0,AMBER,OPP-2027,CUST-1027,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+71dc880d-d8a3-4126-9a06-a179dfa7aebf,AMBER,OPP-2028,CUST-1028,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+21308305-83f7-4d7e-8790-6c710c91d27b,AMBER,OPP-2029,CUST-1029,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+e4359f62-e543-4e96-9a91-174f6b3af508,AMBER,OPP-2030,CUST-1030,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+663cd902-2a0c-4b82-82a7-daf69541ffb0,AMBER,OPP-2031,CUST-1031,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+83f5d47a-0212-4cfc-be2f-559946519add,AMBER,OPP-2032,CUST-1032,sap_pricing,R_CURR_MISMATCH,currency,Opp:GBP/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+eaa55ea2-66a8-425f-965d-7bc433c92255,AMBER,OPP-2033,CUST-1033,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+bf8c0296-8ea8-4533-b0ed-c650697386df,AMBER,OPP-2034,CUST-1034,sap_pricing,R_CURR_MISMATCH,currency,Opp:GBP/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+07439974-4002-47f7-bf54-a709682547b9,AMBER,OPP-2035,CUST-1035,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+fb2081a2-4f9a-4d31-9d3d-6dc2e5ad78e8,AMBER,OPP-2036,CUST-1036,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+e457e561-3621-4445-a06f-0fe7913ae5b2,AMBER,OPP-2037,CUST-1037,sap_pricing,R_CURR_MISMATCH,currency,Opp:GBP/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+0f34a609-5e67-4b90-88bf-0b30bda4eec3,AMBER,OPP-2038,CUST-1038,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+b04bdb0c-022a-44bf-bbc1-aeb3cfa9651c,AMBER,OPP-2039,CUST-1039,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+248404cb-f237-47b1-b424-df59c5e75f8b,AMBER,OPP-2040,CUST-1040,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+53cb4ea7-8af0-4285-8ca8-b839dd36ce55,AMBER,OPP-2041,CUST-1041,sap_pricing,R_CURR_MISMATCH,currency,Opp:GBP/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+d2f8d4ab-9850-47ee-b6cb-37700b665715,AMBER,OPP-2042,CUST-1042,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+1358ce2d-c1ea-4e28-af88-53f79bd7eb80,AMBER,OPP-2043,CUST-1043,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+43c40608-ca1f-4d1f-b2f0-da6fdcfff0af,AMBER,OPP-2044,CUST-1044,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+0f0083a9-266c-4c90-b1f8-9e927a7aaee9,AMBER,OPP-2045,CUST-1045,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+ff2a4997-68d2-4730-a700-cce899c97ae5,AMBER,OPP-2046,CUST-1046,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+b7f90a5b-bb9c-41ff-a4c3-fea90047548b,AMBER,OPP-2047,CUST-1047,sap_pricing,R_CURR_MISMATCH,currency,Opp:GBP/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+39dbe89b-8791-42f3-b8bc-fe1e44187db4,AMBER,OPP-2048,CUST-1048,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+5c1858d1-80f8-4f6a-9f62-2a7d49b03411,AMBER,OPP-2049,CUST-1049,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+54400f7d-b554-4c59-a8ae-445cb75a1628,AMBER,OPP-2050,CUST-1050,sap_pricing,R_CURR_MISMATCH,currency,Opp:USD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+ff9fa900-56d4-4294-b4fc-5a1dbe4ea28f,AMBER,OPP-2051,CUST-1051,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+4a3cecda-fa45-4ddb-9616-13c4c10afd9c,AMBER,OPP-2052,CUST-1052,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+f2fc9c6e-a37b-42f2-a8bb-c4e6759b24df,AMBER,OPP-2053,CUST-1053,sap_pricing,R_CURR_MISMATCH,currency,Opp:USD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+322873fa-bd7b-40f8-baa1-3b470a2b2391,AMBER,OPP-2054,CUST-1054,sap_pricing,R_CURR_MISMATCH,currency,Opp:USD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+0f79b2df-7103-4aa2-a114-cb7ab2290243,AMBER,OPP-2056,CUST-1056,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+68aaadd4-122a-40a1-9158-546f5638860e,AMBER,OPP-2057,CUST-1057,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+15b0bf58-2f53-41c9-aaca-dec81c66e8cd,AMBER,OPP-2059,CUST-1059,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+f7ab196c-6741-4d24-ba83-9b54ce7b5fa7,AMBER,OPP-2060,CUST-1060,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+57a74325-b796-49ea-a0c3-f62ff48e3bd7,AMBER,OPP-2061,CUST-1061,sap_pricing,R_CURR_MISMATCH,currency,Opp:GBP/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+a9e4f19a-abea-4f49-a0b5-ea6abe1d3634,AMBER,OPP-2062,CUST-1062,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+0ebe6e8e-7e00-48d8-ad5f-64c0abe24133,AMBER,OPP-2063,CUST-1063,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+07e81a62-2da9-4c4e-b8cc-63c33eeb5b2e,AMBER,OPP-2064,CUST-1064,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+5a515c75-87af-4dd2-9bc6-060bc26687ce,AMBER,OPP-2065,CUST-1065,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+2b1008b3-21e3-4b1c-b36d-2b673fab926d,AMBER,OPP-2066,CUST-1066,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+a5d1562f-bca1-42a9-b90e-64257b7718b9,AMBER,OPP-2067,CUST-1067,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+abeac701-7d0a-4c3e-b6b5-583d9c8c465a,AMBER,OPP-2068,CUST-1068,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+916a0b8b-a097-4379-adb3-bd8e0f8840ed,AMBER,OPP-2069,CUST-1069,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+29a0b5fe-a949-4abd-a51a-38af246841af,AMBER,OPP-2070,CUST-1070,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+e65ff12a-165e-41ca-8007-2bcd59ff532c,AMBER,OPP-2071,CUST-1071,sap_pricing,R_CURR_MISMATCH,currency,Opp:USD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+5d408f3e-c7bc-47c1-a880-e2e469d2e1e6,AMBER,OPP-2072,CUST-1072,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+95827fb5-0f62-49ad-8576-5fa46f413426,AMBER,OPP-2074,CUST-1074,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+c1dd9439-fa43-4c78-86a5-bca19d2025e7,AMBER,OPP-2075,CUST-1075,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+a4bb21f5-dfe6-4b89-ab20-66d5991803be,AMBER,OPP-2076,CUST-1076,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+4f5e6749-5ccc-41cd-860c-46381d65392d,AMBER,OPP-2077,CUST-1077,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+79028ef8-0d58-427c-8c9b-61c82bd0a338,AMBER,OPP-2078,CUST-1078,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+276454cd-14b6-4f2c-837c-29ef719e11a9,AMBER,OPP-2079,CUST-1079,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+6b3bd340-0f9f-4d7e-92d0-6991fb30e135,AMBER,OPP-2080,CUST-1080,sap_pricing,R_CURR_MISMATCH,currency,Opp:USD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+e933ef29-1443-460e-9df5-1c2b843dedc7,AMBER,OPP-2081,CUST-1081,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+7f35c4cb-fc97-42d6-95e9-46dff53934c4,AMBER,OPP-2082,CUST-1082,sap_pricing,R_CURR_MISMATCH,currency,Opp:GBP/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+2e8f9c4b-3b3c-462b-b52b-8fd8cf84a465,AMBER,OPP-2083,CUST-1083,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+fa972698-aec6-403d-839a-b3a35d2ea7aa,AMBER,OPP-2084,CUST-1084,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+ee4db231-6a1e-4ba2-9bb6-ca1aade7aab1,AMBER,OPP-2085,CUST-1085,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+882d2eca-050a-46ff-bbe5-6ecc512a0981,AMBER,OPP-2086,CUST-1086,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+7e03a43d-57ad-4fc6-8acd-b41e42c45757,AMBER,OPP-2087,CUST-1087,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+757a59a4-ac82-4c63-b343-9e19025492a4,AMBER,OPP-2088,CUST-1088,sap_pricing,R_CURR_MISMATCH,currency,Opp:CAD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+3de35892-b966-46c8-8910-64ae438469ca,AMBER,OPP-2090,CUST-1090,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+d359e76d-d1ab-453a-b836-2ee1eb0ea8ec,AMBER,OPP-2091,CUST-1091,sap_pricing,R_CURR_MISMATCH,currency,Opp:USD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+c70a695b-7957-45e0-afe9-ea5867e186ca,AMBER,OPP-2092,CUST-1092,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+d1c0c548-d180-44c9-902f-7efb6ec3794d,AMBER,OPP-2093,CUST-1093,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+5b2f8769-db97-416d-91d9-eb1d647f9479,AMBER,OPP-2094,CUST-1094,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+05d468b8-eb5a-4936-8dc2-83ac1d24b50a,AMBER,OPP-2095,CUST-1095,sap_pricing,R_CURR_MISMATCH,currency,Opp:USD/SAP:EUR,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+71649438-f2cf-44e3-a484-a636de9e63ae,AMBER,OPP-2096,CUST-1096,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+c4399e15-c93d-42d7-bcb9-519b9e4a3d19,AMBER,OPP-2097,CUST-1097,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+871e5b8b-7b8b-4a1a-815a-7e57d625cfb3,AMBER,OPP-2098,CUST-1098,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+40a20c8f-fe70-4645-9a4f-9e384f665d55,AMBER,OPP-2099,CUST-1099,sap_pricing,R_CURR_MISMATCH,currency,Opp:EUR/SAP:CAD,Match,Currency mismatch between CRM and ERP,Align currencies before quoting
+191e98f8-7027-4f7c-a440-0af5d23049f7,GREEN,OPP-2000,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+8ab43660-df1a-482a-a535-179c6c56f627,GREEN,OPP-2001,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+b874f546-24f9-46d1-9542-233b1aa45e7d,GREEN,OPP-2002,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+815cc743-068f-4ca4-9941-453273c53ab1,GREEN,OPP-2003,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+c9c899ff-a1dd-4ac2-906f-48f1e9250a48,GREEN,OPP-2004,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+2d736898-6caf-4585-b405-4fc61aa59cb1,GREEN,OPP-2005,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+76f5590d-1f42-4dc5-ad7c-ba75c348c4bb,GREEN,OPP-2006,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+13d95f3e-9fd7-4eb7-9e0c-681b9278f510,GREEN,OPP-2007,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+8ddee633-de97-4e92-954f-66358036f716,GREEN,OPP-2008,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+bf3b4560-98f0-4ec4-8582-4eeef27c59e0,GREEN,OPP-2009,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+a55fbd2f-9e65-4cb8-b9f8-0517bc5f0781,GREEN,OPP-2010,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+325489c2-1999-4697-a6a4-628cbbc0e7da,GREEN,OPP-2011,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+dadcd220-fc5c-471a-8479-f7ed2916b124,GREEN,OPP-2013,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+d3088f4b-a17b-4802-9210-2fdb6fc5f7c2,GREEN,OPP-2014,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+e37daa31-e9b7-4bf4-928f-674b4fb4d927,GREEN,OPP-2015,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+fa90c84f-9d46-407d-aae7-bab5e4dde33e,GREEN,OPP-2016,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+7896ec0e-47ae-42aa-85ca-ecf1e119a6a4,GREEN,OPP-2017,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+be05321b-f5a6-4b32-8844-4ec5a9fdd66b,GREEN,OPP-2018,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+5dac7b07-3a4b-4262-aa9a-ee6527e6b3d9,GREEN,OPP-2020,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+0272fff3-a360-44bb-a6bc-5da82c907710,GREEN,OPP-2021,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+9cd4fb6a-6f5d-44c0-96c4-036d79432fa1,GREEN,OPP-2022,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+33f93151-4d02-4e17-b1ba-f77ec1645224,GREEN,OPP-2023,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+6b16f25c-e51d-43ca-9b61-af19f1b8fe5c,GREEN,OPP-2024,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+fc1632ab-2796-4014-a04c-506f1d30714e,GREEN,OPP-2025,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+18942dec-4a7c-460d-ba06-54caae2e8b00,GREEN,OPP-2026,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+e625ebec-f751-4aad-9dca-6a8eab0e4708,GREEN,OPP-2027,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+93ca6189-76ac-412c-992a-9043df57138e,GREEN,OPP-2029,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+f99dea37-ce0b-4cbf-aee3-714a6a1c516a,GREEN,OPP-2030,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+88f98816-db25-44b7-9539-fbe2c47a28c2,GREEN,OPP-2031,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+21e639c8-443d-4e78-b6b1-c79bd651c917,GREEN,OPP-2032,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+134729c2-0940-4465-a16c-ccd3bcae4f69,GREEN,OPP-2033,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+9f1067d2-ea5f-40c0-879b-9b31995e55cf,GREEN,OPP-2034,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+b60e87f4-d794-466f-9d73-5838db371069,GREEN,OPP-2035,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+6e448f08-5af5-4139-9203-72b7d36e3035,GREEN,OPP-2038,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+aad4245b-64a6-4751-b1bc-d3cc6554c4e7,GREEN,OPP-2039,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+66e76bdd-a30f-4d9b-8c5b-1859116c8f17,GREEN,OPP-2040,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+88cca10b-a8b0-4464-af91-28c9516d3bb6,GREEN,OPP-2041,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+cabd54c3-bb10-405e-9001-18db83ae588e,GREEN,OPP-2042,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+b13bab50-bd14-458c-864d-41bd090001fa,GREEN,OPP-2043,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+aed25abb-5670-49a4-87d8-fc7ddc832294,GREEN,OPP-2044,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+ad57b473-ff9d-46fa-9684-2253fb137ea0,GREEN,OPP-2046,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+24fee68b-0f4d-4829-885f-d2ef364febde,GREEN,OPP-2047,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+373e7ed0-f615-4736-bcf8-c377458631b0,GREEN,OPP-2048,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+207f1f60-0ca3-495c-b290-c985da149de1,GREEN,OPP-2049,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+d2183421-b1a4-4b71-acea-10e4c6195aac,GREEN,OPP-2050,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+997cb031-f34b-4a0e-9205-f8a9ded282f0,GREEN,OPP-2051,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+edcb5822-a0e7-4182-ac8e-260d7ad586a1,GREEN,OPP-2053,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+228fe6ae-671e-47ab-be2f-a6f3b0f71e1a,GREEN,OPP-2054,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+6108dcb8-a690-40b2-8766-adc3fe30d3e7,GREEN,OPP-2056,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+86548c0a-8895-43fb-9541-b4fa5f7f8699,GREEN,OPP-2057,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+600f5b57-04b3-4e60-a89c-5ae6dc2468cd,GREEN,OPP-2058,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+e0001c76-46e6-4c6c-83fd-bd4f23b3be1b,GREEN,OPP-2059,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+3f291d1e-4790-47bf-a538-fbbbc676630a,GREEN,OPP-2061,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+25188c09-9509-49ff-8cdd-1fd2f98549f1,GREEN,OPP-2062,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+0d123d75-95eb-473b-ab9a-0c62ee1f3f70,GREEN,OPP-2064,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+542fa17d-5a64-476e-aa65-b5983e5ab5e6,GREEN,OPP-2065,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+7f9a35a2-d7b0-485a-b254-cc37726dd92a,GREEN,OPP-2067,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+b211222c-5e83-4d28-b687-55048cacb466,GREEN,OPP-2068,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+8d0c6a67-29b7-4f9c-ae7e-2d5bb9cbf7d9,GREEN,OPP-2069,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+4134efe2-9b0d-4ba9-92eb-605e8d905aca,GREEN,OPP-2070,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+d149b33b-50cf-4c42-bca4-8824ceed996f,GREEN,OPP-2071,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+d84bcfd6-b524-4dff-9efe-38c532ef7685,GREEN,OPP-2072,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+70223904-05c4-4741-bf0a-6e7a72302af3,GREEN,OPP-2073,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+50f04664-3e52-4b6b-b90d-e75bba23c37f,GREEN,OPP-2074,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+4fff3fae-4a99-4752-aa61-538987d1f00c,GREEN,OPP-2075,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+264a3564-c41f-40b4-b87d-c458a913d413,GREEN,OPP-2077,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+7304c1b2-edee-4c36-bf37-440ea808c00f,GREEN,OPP-2078,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+dda10eb8-c933-4b83-8a28-23c19b5ed50f,GREEN,OPP-2079,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+539e0781-7457-4eeb-b05d-fac01da15409,GREEN,OPP-2085,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+8d70c853-be69-4a8f-a159-98ca9ec0f5cd,GREEN,OPP-2086,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+92cca269-bf72-4de0-ac71-b166a723a5e0,GREEN,OPP-2088,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+9ab2914d-a53d-49cf-a4e8-10127134a236,GREEN,OPP-2089,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+765d01c7-e809-4516-9d65-3656105cba26,GREEN,OPP-2090,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+f7eca2d1-1215-475a-b453-1242699c3653,GREEN,OPP-2091,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+0e934bec-a27c-4c25-849d-25258af67386,GREEN,OPP-2092,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+e0489dfb-b28d-4a28-8d42-5e9ff6d916fd,GREEN,OPP-2093,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+03b7abab-1705-493b-be5e-aa54240c523a,GREEN,OPP-2094,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+1af23ee3-a249-43c6-b41d-a420deb0be8c,GREEN,OPP-2095,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+917f0b09-6647-48cf-8db0-f00ac1d143df,GREEN,OPP-2096,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+61b3d0d0-617f-4ed9-81eb-138a71b36e89,GREEN,OPP-2097,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed
+27366962-cd6e-43b3-9dfe-f8f9fe0b1b3c,GREEN,OPP-2099,Multiple,scenarios,R_COMPLIANT,overall,Compliant,Compliant,Scenario passes all red flags,Proceed

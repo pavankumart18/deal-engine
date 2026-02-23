@@ -1,0 +1,101 @@
+opportunity_id,customer_id,customer_name,region,country,segment,instrument_sku,instrument_qty,requested_instrument_discount_pct,expected_annual_consumables,expected_annual_service,contract_term_years,competitor_pressure,strategic_flag,currency,stage
+OPP-2000,CUST-1000,HealthCenter 0,Netherlands,Netherlands,Reference Lab,DX-Legacy,6,0.24,202839,14254,1,High,False,CAD,Prospecting
+OPP-2001,CUST-1001,BioLabs 1,France,France,Biopharma,CYTO-Old,1,0.16,205105,25144,1,High,False,EUR,Proposal
+OPP-2002,CUST-1002,HealthCenter 2,Italy,Italy,CRO,DX-1000,4,0.13,31023,32214,2,Medium,False,CAD,Proposal
+OPP-2003,CUST-1003,BioLabs 3,Spain,Spain,Reference Lab,SEQ-500,6,0.16,41447,79774,2,High,False,EUR,Negotiation
+OPP-2004,CUST-1004,HealthCenter 4,Netherlands,Netherlands,Public Hospital,DX-1000,6,0.17,86203,14090,2,High,True,CAD,Proposal
+OPP-2005,CUST-1005,BioLabs 5,UK,UK,Biopharma,CYTO-Flow,5,0.2,180775,19637,3,Low,False,EUR,Negotiation
+OPP-2006,CUST-1006,HealthCenter 6,Netherlands,Netherlands,Private Hospital,DX-2000,1,0.08,29337,30415,1,Low,False,EUR,Prospecting
+OPP-2007,CUST-1007,BioLabs 7,Italy,Italy,CRO,DX-2000,8,0.1,1349148,32071,1,Medium,False,EUR,Proposal
+OPP-2008,CUST-1008,HealthCenter 8,Spain,Spain,Reference Lab,DX-2000,5,0.17,125787,66243,3,High,False,EUR,Negotiation
+OPP-2009,CUST-1009,BioLabs 9,France,France,Public Hospital,SEQ-500,5,0.22,182993,49240,1,High,False,EUR,Prospecting
+OPP-2010,CUST-1009,BioLabs 9 Inc.,Italy,Italy,Private Hospital,CYTO-Flow,7,0.16,147016,41434,2,Low,False,EUR,Proposal
+OPP-2011,CUST-1011,BioLabs 11,Italy,Italy,Private Hospital,DX-1000,4,0.1,286979,77724,2,Medium,False,EUR,Prospecting
+OPP-2012,CUST-1012,HealthCenter 12,UK,UK,Research Institute,SEQ-Pro,6,0.19,40159,36732,2,Low,True,CAD,Proposal
+OPP-2013,CUST-1013,BioLabs 13,Canada,Canada,Biopharma,DX-1000,4,0.2,198677,19314,1,Low,False,USD,Prospecting
+OPP-2014,CUST-1014,HealthCenter 14,Spain,Spain,Reference Lab,SEQ-Pro,3,0.1,186619,31954,2,Low,False,CAD,Prospecting
+OPP-2015,CUST-1015,BioLabs 15,Germany,Germany,Public Hospital,DX-1000,7,0.13,102844,65108,3,Low,False,EUR,Negotiation
+OPP-2016,CUST-1016,HealthCenter 16,Italy,Italy,Research Institute,CYTO-Flow,8,0.16,47532,44668,3,High,True,EUR,Prospecting
+OPP-2017,CUST-1017,BioLabs 17,Canada,Canada,Biopharma,SEQ-Pro,4,0.15,185421,31061,1,High,True,EUR,Proposal
+OPP-2018,CUST-1018,HealthCenter 18,Germany,Germany,Research Institute,SEQ-500,2,0.13,142402,47749,3,Low,False,EUR,Proposal
+OPP-2019,CUST-1019,BioLabs 19,Spain,Spain,CRO,DX-1000,3,0.45,138012,24907,3,Medium,False,GBP,Negotiation
+OPP-2020,CUST-1020,HealthCenter 20,US,US,Biopharma,DX-1000,1,0.07,76178,26777,6,Medium,False,CAD,Proposal
+OPP-2021,CUST-1021,BioLabs 21,Canada,Canada,Biopharma,SEQ-Pro,8,0.06,69407,59745,2,Medium,False,CAD,Proposal
+OPP-2022,CUST-1022,HealthCenter 22,Switzerland,Switzerland,Reference Lab,SEQ-500,3,0.24,70990,31624,2,Medium,False,EUR,Proposal
+OPP-2023,CUST-1023,BioLabs 23,US,US,Biopharma,SEQ-500,7,0.22,149473,31321,2,Low,False,EUR,Prospecting
+OPP-2024,CUST-1024,HealthCenter 24,UK,UK,Research Institute,CYTO-Flow,5,0.12,915374,18488,1,High,False,EUR,Prospecting
+OPP-2025,CUST-1025,BioLabs 25,Netherlands,Netherlands,Biopharma,SEQ-500,5,0.24,188964,30574,3,Medium,False,EUR,Proposal
+OPP-2026,CUST-1026,HealthCenter 26,France,France,Reference Lab,SEQ-500,7,0.19,21015,13240,5,Low,False,EUR,Negotiation
+OPP-2027,CUST-1027,BioLabs 27,Switzerland,Switzerland,Reference Lab,SEQ-500,9,0.15,81813,51221,2,Medium,False,EUR,Prospecting
+OPP-2028,CUST-1028,HealthCenter 28,UK,UK,CRO,DX-2000,5,0.15,47712,18478,1,Medium,False,EUR,Negotiation
+OPP-2029,CUST-1029,BioLabs 29,Spain,Spain,Research Institute,CYTO-Flow,1,0.07,120497,63645,2,Low,True,EUR,Proposal
+OPP-2030,CUST-1030,HealthCenter 30,UK,UK,Private Hospital,DX-1000,1,0.07,262926,27262,1,High,False,CAD,Proposal
+OPP-2031,CUST-1031,BioLabs 31,Netherlands,Netherlands,Private Hospital,SEQ-Pro,2,0.17,132816,60796,3,High,False,CAD,Prospecting
+OPP-2032,CUST-1032,HealthCenter 32,Spain,Spain,Biopharma,DX-1000,6,0.16,148778,12432,1,Low,False,GBP,Proposal
+OPP-2033,CUST-1033,BioLabs 33,Switzerland,Switzerland,CRO,CYTO-Flow,9,0.09,82292,72291,1,High,False,EUR,Prospecting
+OPP-2034,CUST-1034,HealthCenter 34,Netherlands,Netherlands,Public Hospital,SEQ-Pro,8,0.24,1476555,67399,1,Low,False,GBP,Proposal
+OPP-2035,CUST-1035,BioLabs 35,Germany,Germany,Biopharma,CYTO-Flow,5,0.21,26994,58428,1,Low,False,EUR,Proposal
+OPP-2036,CUST-1036,HealthCenter 36,France,France,CRO,SEQ-500,1,0.45,289114,8302,3,Low,False,EUR,Prospecting
+OPP-2037,CUST-1037,BioLabs 37,Switzerland,Switzerland,Research Institute,SEQ-Pro,7,0.45,171456,8055,3,High,False,GBP,Prospecting
+OPP-2038,CUST-1038,HealthCenter 38,Germany,Germany,Research Institute,SEQ-500,5,0.24,125570,16717,2,Low,False,EUR,Prospecting
+OPP-2039,CUST-1039,BioLabs 39,Switzerland,Switzerland,Research Institute,DX-1000,6,0.25,290846,36699,3,Medium,False,CAD,Proposal
+OPP-2040,CUST-1040,HealthCenter 40,Spain,Spain,Research Institute,DX-1000,7,0.06,20404,75661,3,High,False,CAD,Proposal
+OPP-2041,CUST-1041,BioLabs 41,Germany,Germany,Research Institute,SEQ-Pro,3,0.2,198998,52247,2,High,False,GBP,Negotiation
+OPP-2042,CUST-1042,HealthCenter 42,France,France,CRO,SEQ-Pro,3,0.16,294907,24748,3,High,False,CAD,Prospecting
+OPP-2043,CUST-1043,BioLabs 43,Netherlands,Netherlands,CRO,CYTO-Flow,5,0.19,169456,12621,7,High,False,EUR,Proposal
+OPP-2044,CUST-1044,HealthCenter 44,Italy,Italy,Reference Lab,CYTO-Flow,6,0.24,26009,23034,1,Medium,False,EUR,Proposal
+OPP-2045,CUST-1045,BioLabs 45,UK,UK,Private Hospital,SEQ-500,9,0.45,160932,13126,2,High,False,EUR,Prospecting
+OPP-2046,CUST-1046,HealthCenter 46,US,US,Research Institute,SEQ-Pro,5,0.22,255365,13122,2,High,False,CAD,Negotiation
+OPP-2047,CUST-1047,BioLabs 47,France,France,Public Hospital,DX-1000,1,0.22,70612,26030,2,Low,False,GBP,Prospecting
+OPP-2048,CUST-1048,HealthCenter 48,Germany,Germany,CRO,CYTO-Flow,4,0.22,220244,63658,1,High,True,EUR,Negotiation
+OPP-2049,CUST-1049,BioLabs 49,Italy,Italy,Public Hospital,CYTO-Flow,5,0.14,293060,46638,3,Medium,False,EUR,Proposal
+OPP-2050,CUST-1050,HealthCenter 50,France,France,Public Hospital,DX-1000,5,0.09,24809,75067,6,Medium,True,USD,Negotiation
+OPP-2051,CUST-1051,BioLabs 51,Germany,Germany,Public Hospital,CYTO-Flow,7,0.13,183273,42674,2,Medium,False,EUR,Proposal
+OPP-2052,CUST-1052,HealthCenter 52,Canada,Canada,Reference Lab,SEQ-500,4,0.45,204402,43854,3,Medium,False,EUR,Prospecting
+OPP-2053,CUST-1053,BioLabs 53,Canada,Canada,CRO,SEQ-Pro,1,0.08,164528,54271,3,High,False,USD,Prospecting
+OPP-2054,CUST-1054,HealthCenter 54,France,France,Public Hospital,DX-1000,5,0.15,58765,46518,1,High,False,USD,Prospecting
+OPP-2055,CUST-1055,BioLabs 55,Canada,Canada,Research Institute,SEQ-Pro,7,0.1,41949,18267,2,Medium,False,EUR,Negotiation
+OPP-2056,CUST-1056,HealthCenter 56,Germany,Germany,Biopharma,CYTO-Flow,6,0.17,221152,9062,1,Medium,False,EUR,Proposal
+OPP-2057,CUST-1057,BioLabs 57,Germany,Germany,Public Hospital,CYTO-Flow,5,0.22,196615,58448,3,High,False,EUR,Prospecting
+OPP-2058,CUST-1058,HealthCenter 58,France,France,Reference Lab,DX-1000,4,0.23,294848,14229,1,Medium,False,EUR,Prospecting
+OPP-2059,CUST-1059,BioLabs 59,Italy,Italy,CRO,SEQ-500,2,0.1,56187,64793,1,Low,False,EUR,Proposal
+OPP-2060,CUST-1060,HealthCenter 60,Netherlands,Netherlands,Reference Lab,DX-2000,4,0.23,158311,55915,2,Medium,False,EUR,Prospecting
+OPP-2061,CUST-1061,BioLabs 61,Switzerland,Switzerland,Public Hospital,DX-1000,3,0.17,296633,12632,2,Medium,False,GBP,Proposal
+OPP-2062,CUST-1062,HealthCenter 62,Italy,Italy,CRO,DX-2000,1,0.12,209089,11596,3,Low,True,EUR,Proposal
+OPP-2063,CUST-1063,BioLabs 63,Spain,Spain,Biopharma,DX-2000,8,0.19,81877,14168,1,Low,False,EUR,Proposal
+OPP-2064,CUST-1064,HealthCenter 64,Germany,Germany,Public Hospital,SEQ-500,5,0.15,114074,15561,1,High,False,EUR,Proposal
+OPP-2065,CUST-1065,BioLabs 65,Spain,Spain,Reference Lab,DX-2000,4,0.13,183121,34734,1,High,False,EUR,Proposal
+OPP-2066,CUST-1066,HealthCenter 66,Italy,Italy,Private Hospital,DX-2000,8,0.19,57131,14371,3,Low,False,EUR,Negotiation
+OPP-2067,CUST-1067,BioLabs 67,Switzerland,Switzerland,Research Institute,SEQ-500,7,0.1,135765,34069,3,Low,False,EUR,Prospecting
+OPP-2068,CUST-1068,HealthCenter 68,Switzerland,Switzerland,Reference Lab,DX-2000,2,0.12,126884,20910,2,High,False,EUR,Negotiation
+OPP-2069,CUST-1069,BioLabs 69,US,US,CRO,DX-2000,1,0.14,145917,31275,2,Medium,False,EUR,Prospecting
+OPP-2070,CUST-1070,HealthCenter 70,Switzerland,Switzerland,Public Hospital,DX-2000,4,0.1,193880,68004,2,Low,False,EUR,Negotiation
+OPP-2071,CUST-1071,BioLabs 71,Netherlands,Netherlands,Research Institute,DX-1000,8,0.13,35254,70981,1,High,False,USD,Proposal
+OPP-2072,CUST-1072,HealthCenter 72,Switzerland,Switzerland,Public Hospital,DX-1000,2,0.16,64238,62553,1,Medium,False,CAD,Prospecting
+OPP-2073,CUST-1073,BioLabs 73,Italy,Italy,CRO,DX-1000,3,0.2,21252,56447,2,Low,False,EUR,Prospecting
+OPP-2074,CUST-1074,HealthCenter 74,US,US,Public Hospital,SEQ-500,1,0.2,101317,42529,1,Medium,False,EUR,Negotiation
+OPP-2075,CUST-1075,BioLabs 75,Italy,Italy,Private Hospital,CYTO-Flow,1,0.21,98587,25260,2,High,False,EUR,Negotiation
+OPP-2076,CUST-1076,HealthCenter 76,Italy,Italy,Research Institute,DX-2000,3,0.2,14666,11812,3,Low,True,EUR,Prospecting
+OPP-2077,CUST-1077,BioLabs 77,UK,UK,Research Institute,DX-2000,5,0.19,258897,36024,2,Medium,False,EUR,Negotiation
+OPP-2078,CUST-1078,HealthCenter 78,US,US,CRO,SEQ-500,3,0.1,224625,66656,3,Low,False,EUR,Negotiation
+OPP-2079,CUST-1079,BioLabs 79,Italy,Italy,Private Hospital,DX-2000,1,0.13,158013,35285,1,Medium,True,EUR,Negotiation
+OPP-2080,CUST-1080,HealthCenter 80,UK,UK,Reference Lab,DX-1000,1,0.4,290000,9605,2,High,True,USD,Negotiation
+OPP-2081,CUST-1081,BioLabs 81,UK,UK,Public Hospital,CYTO-Flow,8,0.4,290000,79158,1,High,True,EUR,Negotiation
+OPP-2082,CUST-1082,HealthCenter 82,US,US,Biopharma,SEQ-Pro,2,0.4,290000,35139,3,High,True,GBP,Negotiation
+OPP-2083,CUST-1083,BioLabs 83,Spain,Spain,Public Hospital,DX-2000,3,0.4,290000,64138,3,High,True,EUR,Negotiation
+OPP-2084,CUST-1084,HealthCenter 84,Netherlands,Netherlands,Public Hospital,DX-1000,2,0.4,290000,21918,3,High,True,CAD,Negotiation
+OPP-2085,CUST-1085,BioLabs 85,Switzerland,Switzerland,Reference Lab,SEQ-Pro,3,0.25,273490,35446,1,Low,False,CAD,Proposal
+OPP-2086,CUST-1086,HealthCenter 86,Netherlands,Netherlands,Public Hospital,CYTO-Flow,7,0.16,63088,21046,1,Medium,False,EUR,Prospecting
+OPP-2087,CUST-1087,BioLabs 87,Switzerland,Switzerland,Private Hospital,SEQ-Pro,1,0.11,11727,32818,1,Medium,False,CAD,Prospecting
+OPP-2088,CUST-1088,HealthCenter 88,Italy,Italy,Private Hospital,DX-1000,8,0.06,256614,12324,1,Medium,False,CAD,Proposal
+OPP-2089,CUST-1089,BioLabs 89,Germany,Germany,Research Institute,SEQ-Pro,2,0.23,238441,17111,7,High,False,EUR,Negotiation
+OPP-2090,CUST-1090,HealthCenter 90,US,US,CRO,SEQ-500,3,0.23,145911,46110,3,Low,False,EUR,Negotiation
+OPP-2091,CUST-1091,BioLabs 91,Netherlands,Netherlands,Biopharma,SEQ-Pro,9,0.1,243777,24389,2,Low,False,USD,Negotiation
+OPP-2092,CUST-1092,HealthCenter 92,Netherlands,Netherlands,Public Hospital,DX-2000,7,0.19,296532,49427,2,High,True,EUR,Negotiation
+OPP-2093,CUST-1093,BioLabs 93,Italy,Italy,Public Hospital,DX-2000,4,0.07,25569,36746,1,Medium,False,EUR,Prospecting
+OPP-2094,CUST-1094,HealthCenter 94,Spain,Spain,Reference Lab,SEQ-500,5,0.08,89836,8117,3,High,False,EUR,Proposal
+OPP-2095,CUST-1095,BioLabs 95,UK,UK,CRO,DX-1000,2,0.09,124573,21234,3,High,False,USD,Negotiation
+OPP-2096,CUST-1096,HealthCenter 96,Italy,Italy,Private Hospital,DX-2000,8,0.11,278090,61441,3,High,False,EUR,Prospecting
+OPP-2097,CUST-1097,BioLabs 97,Canada,Canada,Biopharma,CYTO-Flow,4,0.25,163087,8846,2,Low,False,EUR,Negotiation
+OPP-2098,CUST-1098,HealthCenter 98,UK,UK,Research Institute,DX-2000,9,0.19,65002,18954,2,High,False,EUR,Proposal
+OPP-2099,CUST-1099,BioLabs 99,US,US,Private Hospital,DX-2000,5,0.13,267666,54514,3,Low,False,EUR,Prospecting

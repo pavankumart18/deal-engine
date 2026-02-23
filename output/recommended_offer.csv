@@ -1,0 +1,101 @@
+opportunity_id,recommended_scenario,rationale,escalation_required,expected_margin
+OPP-2000,B,Scenario A provides highest win probability but violates margin floor policy. Scenario B recommended instead to maintain compliance.,False,0.41169341038457113
+OPP-2001,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4877466708748995
+OPP-2002,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4435346744799801
+OPP-2003,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4853413887394434
+OPP-2004,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4412308035630991
+OPP-2005,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5204567666958321
+OPP-2006,C,Maximizes lifetime gross profit while remaining compliant.,False,0.3890495827430015
+OPP-2007,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4524900073168113
+OPP-2008,C,Maximizes lifetime gross profit while remaining compliant.,False,0.37108049165130874
+OPP-2009,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4661310432547314
+OPP-2010,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5404287417406104
+OPP-2011,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4632531124124791
+OPP-2012,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.31242541840045013
+OPP-2013,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4400786611612736
+OPP-2014,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4304671071480325
+OPP-2015,C,Maximizes lifetime gross profit while remaining compliant.,False,0.44347800035143103
+OPP-2016,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5425963927164492
+OPP-2017,C,Maximizes lifetime gross profit while remaining compliant.,False,0.39474506453093905
+OPP-2018,C,Maximizes lifetime gross profit while remaining compliant.,False,0.48519795083575834
+OPP-2019,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.3621940835949946
+OPP-2020,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4549239565324493
+OPP-2021,C,Maximizes lifetime gross profit while remaining compliant.,False,0.3826934567278654
+OPP-2022,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4509624363527338
+OPP-2023,C,Maximizes lifetime gross profit while remaining compliant.,False,0.46796010300795726
+OPP-2024,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5305735135316729
+OPP-2025,C,Maximizes lifetime gross profit while remaining compliant.,False,0.46090515606789895
+OPP-2026,C,Maximizes lifetime gross profit while remaining compliant.,False,0.48236100060134335
+OPP-2027,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5009731914294226
+OPP-2028,C,Maximizes lifetime gross profit while remaining compliant.,False,0.354515451309134
+OPP-2029,C,Maximizes lifetime gross profit while remaining compliant.,False,0.48182457229307885
+OPP-2030,C,Maximizes lifetime gross profit while remaining compliant.,False,0.48324869755347005
+OPP-2031,C,Maximizes lifetime gross profit while remaining compliant.,False,0.40473820135721195
+OPP-2032,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4497135682359957
+OPP-2033,C,Maximizes lifetime gross profit while remaining compliant.,False,0.57863520968286
+OPP-2034,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4434566768110086
+OPP-2035,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5204744956522458
+OPP-2036,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.4540952353481667
+OPP-2037,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.2866689458117893
+OPP-2038,C,Maximizes lifetime gross profit while remaining compliant.,False,0.45965493677198255
+OPP-2039,C,Maximizes lifetime gross profit while remaining compliant.,False,0.43474325963205557
+OPP-2040,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4599006844623379
+OPP-2041,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4055687747710611
+OPP-2042,C,Maximizes lifetime gross profit while remaining compliant.,False,0.450699801511116
+OPP-2043,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5152883233378199
+OPP-2044,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5215498088011941
+OPP-2045,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.3056978077026663
+OPP-2046,C,Maximizes lifetime gross profit while remaining compliant.,False,0.40515097374084996
+OPP-2047,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4266692971842891
+OPP-2048,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5051253734097199
+OPP-2049,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5203388690514574
+OPP-2050,C,Maximizes lifetime gross profit while remaining compliant.,False,0.41841414678093747
+OPP-2051,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5482452680515607
+OPP-2052,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.3616878112305738
+OPP-2053,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4382544080735285
+OPP-2054,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4375547328138609
+OPP-2055,C,Maximizes lifetime gross profit while remaining compliant.,False,0.36630041823681314
+OPP-2056,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5475919707536157
+OPP-2057,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4964917238494394
+OPP-2058,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4402224821753554
+OPP-2059,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5027107551107719
+OPP-2060,C,Maximizes lifetime gross profit while remaining compliant.,False,0.3574232802570367
+OPP-2061,C,Maximizes lifetime gross profit while remaining compliant.,False,0.47076200243446914
+OPP-2062,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4667835547742996
+OPP-2063,C,Maximizes lifetime gross profit while remaining compliant.,False,0.3305751037603196
+OPP-2064,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5060089592569743
+OPP-2065,C,Maximizes lifetime gross profit while remaining compliant.,False,0.39638926744720443
+OPP-2066,C,Maximizes lifetime gross profit while remaining compliant.,False,0.33593586137588977
+OPP-2067,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5211954589830764
+OPP-2068,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4205317315891696
+OPP-2069,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4330098191922752
+OPP-2070,C,Maximizes lifetime gross profit while remaining compliant.,False,0.41046007797027906
+OPP-2071,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4444222889748315
+OPP-2072,C,Maximizes lifetime gross profit while remaining compliant.,False,0.41956029499263314
+OPP-2073,C,Maximizes lifetime gross profit while remaining compliant.,False,0.388692164129926
+OPP-2074,C,Maximizes lifetime gross profit while remaining compliant.,False,0.46226493922695744
+OPP-2075,C,Maximizes lifetime gross profit while remaining compliant.,False,0.48895352140779674
+OPP-2076,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.31938638492844984
+OPP-2077,C,Maximizes lifetime gross profit while remaining compliant.,False,0.3924649465994421
+OPP-2078,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4955316692647582
+OPP-2079,C,Maximizes lifetime gross profit while remaining compliant.,False,0.42665093623655376
+OPP-2080,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.46147527884555534
+OPP-2081,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.4310915249749925
+OPP-2082,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.4348137918012042
+OPP-2083,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.3775736890979448
+OPP-2084,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.44293856180596347
+OPP-2085,C,Maximizes lifetime gross profit while remaining compliant.,False,0.401162112060295
+OPP-2086,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5608626589890556
+OPP-2087,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.3364741837197015
+OPP-2088,C,Maximizes lifetime gross profit while remaining compliant.,False,0.49438223309922086
+OPP-2089,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4668364784490087
+OPP-2090,C,Maximizes lifetime gross profit while remaining compliant.,False,0.45702439071471157
+OPP-2091,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4102239044963988
+OPP-2092,C,Maximizes lifetime gross profit while remaining compliant.,False,0.38317607655086905
+OPP-2093,C,Maximizes lifetime gross profit while remaining compliant.,False,0.39293683083400077
+OPP-2094,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5355534247331316
+OPP-2095,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4739004992898468
+OPP-2096,C,Maximizes lifetime gross profit while remaining compliant.,False,0.4127376771439286
+OPP-2097,C,Maximizes lifetime gross profit while remaining compliant.,False,0.5108184333126634
+OPP-2098,C,No compliant scenarios available. Recommending highest margin option. Requires escalation.,True,0.330692691911445
+OPP-2099,C,Maximizes lifetime gross profit while remaining compliant.,False,0.41830822017558816
