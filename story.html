@@ -1172,11 +1172,16 @@
             opportunity appears as a card showing the customer name, region, and risk posture at a glance. Clicking "Run
             Scenario" triggers the agent orchestrator — a live visualization showing the AI system's decision flow in
             real time.</p>
-        <p>The orchestrator dispatches five parallel agents: a <strong>Data Audit Agent</strong> that validates source
-            data integrity, a <strong>Scenario Modeler</strong> that evaluates the three offer structures, a
-            <strong>Risk Analyst</strong> that scores multi-dimensional risk, a <strong>Compliance Agent</strong> that
-            enforces governance rules, and a <strong>Narrative Agent</strong> that generates the executive summary.
-            Their outputs converge in a final synthesizer that produces the unified recommendation.</p>
+        <p>The orchestrator is <strong>problem-driven, not fixed</strong>. A central planner analyzes the deal and
+            selects only the tools and agents needed for that specific case. Available data extractors pull from five
+            source tables (opportunities, SAP pricing, installed base, contracts, service cases). Available analytical
+            agents include a <strong>Pricing &amp; Scenarios Agent</strong> (baseline economics and three offer structures),
+            a <strong>Compliance &amp; Governance Agent</strong> (margin floors, discount caps, SKU and currency checks),
+            a <strong>Risk Scoring Agent</strong> (win, margin, and compliance risk), and a <strong>Recommendation Agent</strong>
+            (optimal compliant scenario or escalation). The planner chooses a minimal set — for example, a straightforward
+            deal might need fewer steps than one with multiple flags. Selected tools run first; then the chosen agents run
+            in parallel. Their outputs converge in a guardrails check and a final synthesizer that produces the unified
+            recommendation.</p>
         <p>Below the orchestrator, the full deal dashboard unfolds: metric cards showing complexity status and
             confidence scores. A scenario comparison table with margin percentages and lifetime profit projections. An
             issues summary with severity-coded flags and actionable remediation steps. And an executive narrative that
