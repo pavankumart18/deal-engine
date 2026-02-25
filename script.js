@@ -36,6 +36,8 @@ const elements = {
     // Orchestrator View Elements
     orchestratorView: document.getElementById('orchestratorView'),
     orchLog: document.getElementById('orchLog'),
+    orchLoading: document.getElementById('orchLoading'),
+    orchLoadingText: document.getElementById('orchLoadingText'),
     mainDashboard: document.getElementById('mainDashboard'),
     orchToggleBtn: document.getElementById('orchToggleBtn'),
     orchToggleIcon: document.getElementById('orchToggleIcon'),
@@ -44,6 +46,11 @@ const elements = {
     liveOutputTarget: document.getElementById('liveOutputTarget'),
     liveOutputContent: document.getElementById('liveOutputContent')
 };
+
+function setOrchLoading(show, message) {
+    if (elements.orchLoading) elements.orchLoading.style.display = show ? 'flex' : 'none';
+    if (elements.orchLoadingText) elements.orchLoadingText.textContent = message || 'Working...';
+}
 
 // Application Init
 async function init() {
@@ -180,10 +187,11 @@ You have access to the following TOOLS and AGENTS. Each tool extracts or process
 
 ## Your Task:
 Given a deal problem, create a STRUCTURED EXECUTION PLAN that:
-1. Selects ONLY the tools and agents needed for this specific problem (do not include every tool/agent — choose the minimal set that can solve the problem).
+1. Selects the tools and agents needed for this specific problem. Consider: opportunities_extractor and sap_pricing_extractor are usually required for baseline economics; add installed_base_extractor when upgrade paths or utilization matter; add contracts_extractor when checking ghost contracts or service alignment; add service_cases_extractor when service risk or SLA history matters; add ComplianceAgent when governance must be checked; add RiskScoringAgent when risk dimensions matter; add PricingAgent for scenarios; add RecommendationAgent when selecting best scenario. Choose the set that fits the deal — not always the same two tools.
 2. Identifies WHICH TOOLS to use and WHAT DATA to extract (with specific filter conditions).
 3. Identifies WHICH AGENTS to invoke and in what order.
-4. Shows the data flow: Tool → Agent → Output.
+4. For EVERY tool and agent you INCLUDE: provide a clear "rationale" (why selected for this deal).
+5. For EVERY tool and agent you EXCLUDE: add an entry to "exclusion_rationale" with a one-sentence reason why it was not needed for this deal. All 5 tools and all 4 agents must appear either in plan_steps or in exclusion_rationale.
 
 Output STRICTLY as JSON:
 {
@@ -216,6 +224,14 @@ Output STRICTLY as JSON:
       "output_fields": ["scenario_A", "scenario_B", "scenario_C", "gross_margin_pct"],
       "rationale": "Generate structured deal options"
     }
+  ],
+  "exclusion_rationale": [
+    { "id": "contracts_extractor", "reason": "One sentence why not needed for this deal." },
+    { "id": "installed_base_extractor", "reason": "One sentence why not needed for this deal." },
+    { "id": "service_cases_extractor", "reason": "One sentence why not needed for this deal." },
+    { "id": "ComplianceAgent", "reason": "One sentence why not needed for this deal." },
+    { "id": "RiskScoringAgent", "reason": "One sentence why not needed for this deal." },
+    { "id": "RecommendationAgent", "reason": "One sentence why not needed for this deal." }
   ]
 }`;
 
@@ -430,14 +446,37 @@ async function runOrchestratorAnimation(deal) {
     const startEdgeAnimation = () => { let o = 0; dashAnim = setInterval(() => { o = (o + 1) % 26; cy.edges('.flowing').style('line-dash-offset', -o); }, 60); };
     const stopEdgeAnimation = () => { if (dashAnim) { clearInterval(dashAnim); dashAnim = null; } };
     const runLayout = () => { cy.resize(); cy.layout({ name: 'breadthfirst', directed: true, spacingFactor: 1.3, fit: true, padding: 40, avoidOverlap: true }).run(); cy.center(); cy.fit(undefined, 40); };
-    const setLiveOutput = (title, html) => {
+
+    // Current running block (right panel): restored when user clicks outside graph. Pipeline updates this; node tap only changes panel.
+    let currentLiveTitle = 'Awaiting Execution';
+    let currentLiveHtml = "<span class='text-muted'>Click a deal card to run the orchestrator.</span>";
+
+    const setLiveOutput = (title, html, updateCurrent = true) => {
         if (elements.liveOutputTarget) elements.liveOutputTarget.textContent = title;
         if (elements.liveOutputContent) elements.liveOutputContent.innerHTML = html;
+        if (updateCurrent) {
+            currentLiveTitle = title;
+            currentLiveHtml = html;
+        }
+    };
+
+    const setLiveOutputRunning = (title, message) => {
+        const html = `<div class="orch-current-running" role="status">
+            <span class="spinner-border text-primary" aria-hidden="true"></span>
+            <span>${message || title}</span>
+        </div>`;
+        setLiveOutput(title, html, true);
     };
 
     cy.on('tap', 'node', function (evt) {
         const d = evt.target.data('outputHtml');
-        setLiveOutput(evt.target.data('rawName'), d || "<span class='text-muted'>No output yet.</span>");
+        setLiveOutput(evt.target.data('rawName'), d || "<span class='text-muted'>No output yet.</span>", false);
+    });
+
+    cy.on('tap', function (evt) {
+        if (evt.target === cy || evt.target.isBackground?.()) {
+            setLiveOutput(currentLiveTitle, currentLiveHtml, false);
+        }
     });
 
     // ─── Build deal context for the planner ───
@@ -505,16 +544,20 @@ async function runOrchestratorAnimation(deal) {
 
     const planCtx = { oppId, custId, region, marginFloor, cust, reds, ambers, baseline: deal.baseline_economics || {}, issues: deal.issues_summary || [] };
     let executionPlan = getDefaultExecutionPlan(planCtx);
+    let plannerIntent = '';
+    let exclusionRationale = []; // { id, reason } for tools/agents not selected — from LLM
 
     try {
+        setOrchLoading(true, 'Planner building plan…');
+        setLiveOutputRunning('📋 Structured Planner', 'Planner building plan…');
         const { baseUrl, apiKey } = await openaiConfig({ defaultBaseUrls: ["https://api.openai.com/v1", "https://aipipe.org/openai/v1", "https://llmfoundry.straivedemo.com/openai/v1", "https://llmfoundry.straive.com/openai/v1", "https://openrouter.ai/api/v1", "https://aipipe.org/openrouter/v1", "https://llmfoundry.straivedemo.com/openrouter/v1", "https://llmfoundry.straive.com/openrouter/v1"] });
         const model = document.getElementById("model")?.value || "gpt-4o-mini";
-        const dealSummary = `Deal: ${oppId}. Customer: ${cust} (${custId}). Region: ${region}. Margin floor: ${marginFloor}. RED flags: ${reds}, AMBER: ${ambers}. Baseline revenue: ${baseline.total_revenue != null ? fmtK(baseline.total_revenue) : 'unknown'}, cost: ${baseline.total_cost != null ? fmtK(baseline.total_cost) : 'unknown'}. Issues: ${(deal.issues_summary || []).slice(0, 3).map(i => i.rule_id).join(', ') || 'none'}.`;
+        const dealSummary = `Deal: ${oppId}. Customer: ${cust} (${custId}). Region: ${region}. Margin floor: ${marginFloor}. RED flags: ${reds}, AMBER: ${ambers}. Baseline revenue: ${baseline.total_revenue != null ? fmtK(baseline.total_revenue) : 'unknown'}, cost: ${baseline.total_cost != null ? fmtK(baseline.total_cost) : 'unknown'}. Issues: ${(deal.issues_summary || []).map(i => i.rule_id).join(', ') || 'none'}.`;
         const plannerPayload = {
             model,
             messages: [
                 { role: "system", content: ORCHESTRATOR_PLANNER_PROMPT },
-                { role: "user", content: `Create an execution plan for this deal. Only include the tools and agents that are necessary for this specific problem. Do not include every tool or agent — select the minimal set needed.\n\n${dealSummary}` }
+                { role: "user", content: `Create an execution plan for this deal. Select only the tools and agents necessary for this specific problem. For every step you include, set "rationale" (why chosen). For every tool and agent you do NOT include, add an entry to "exclusion_rationale" with "id" and "reason" explaining why it was not needed.\n\n${dealSummary}` }
             ],
             response_format: { type: "json_object" },
             temperature: 0.2
@@ -528,6 +571,8 @@ async function runOrchestratorAnimation(deal) {
         const content = json.choices?.[0]?.message?.content;
         if (content) {
             const parsed = JSON.parse(content);
+            plannerIntent = parsed.intent || '';
+            if (Array.isArray(parsed.exclusion_rationale)) exclusionRationale = parsed.exclusion_rationale;
             const planSteps = parsed.plan_steps;
             const dynamicPlan = buildExecutionPlanFromLLM(planSteps, planCtx);
             if (dynamicPlan && dynamicPlan.length > 0) {
@@ -538,13 +583,19 @@ async function runOrchestratorAnimation(deal) {
     } catch (e) {
         console.warn("Planner LLM failed, using default plan:", e);
         if (elements.orchLog) elements.orchLog.textContent = `📋 Planner: Using default plan (${executionPlan.filter(s => s.type === 'tool').length} tools, ${executionPlan.filter(s => s.type === 'agent').length} agents).`;
+    } finally {
+        setOrchLoading(false);
     }
+
+    // Friendly names for exclusion list (tools + agents)
+    const friendlyName = (id) => (TOOL_REGISTRY[id]?.name || AGENT_REGISTRY[id]?.name || id);
 
     // Show the plan in the live output panel
     await wait(800);
     const planHtml = `
       <div style="font-size:0.82rem;">
         <div style="margin-bottom:6px;font-weight:700;color:#5b21b6;">📋 Execution Plan for ${oppId}</div>
+        ${plannerIntent ? `<div style="margin-bottom:10px;padding:10px 12px;background:#f0fdfa;border-radius:8px;border-left:3px solid #0d9488;font-size:0.76rem;color:#134e4a;"><strong>Intent:</strong> ${plannerIntent}</div>` : ''}
         <div style="margin-bottom:14px;font-size:0.76rem;color:#57534e;line-height:1.5;">The planner analyzed the deal for <strong>${cust}</strong> (${region}) and determined <strong>${executionPlan.filter(s => s.type === 'tool').length} data extraction tools</strong> and <strong>${executionPlan.filter(s => s.type === 'agent').length} analytical agents</strong> are required. Tools execute first (sequential), then agents (parallel).</div>
         <div style="margin-bottom:10px;padding:8px 10px;background:#f5f3ff;border-radius:8px;border-left:3px solid #7c3aed;">
           <div style="font-weight:600;font-size:0.74rem;color:#5b21b6;">🔧 Phase 1: Data Extraction</div>
@@ -554,8 +605,8 @@ async function runOrchestratorAnimation(deal) {
           <div style="margin-bottom:10px;padding:10px 12px;background:#ecfeff;border-radius:8px;border-left:3px solid #06b6d4;">
             <div style="font-weight:700;font-size:0.78rem;color:#155e75;">${s.icon} Step ${s.step}: ${s.name}</div>
             <div style="font-size:0.68rem;color:#78716c;margin-top:2px;">Source: <code>${s.table}</code> → Extracts ${s.fields.length} fields</div>
-            <div style="background:#1e293b;color:#ffffff;border-radius:6px;padding:10px 12px;font-family:monospace;font-size:0.68rem;margin-top:6px;margin-bottom:6px;white-space:pre-wrap;line-height:1.5;">${s.query}</div>
-            <div style="font-size:0.68rem;color:#44403c;line-height:1.5;"><strong>Why:</strong> ${s.why}</div>
+            <div class="orch-code-block" style="margin-top:6px;margin-bottom:6px;">${s.query}</div>
+            <div style="font-size:0.68rem;color:#44403c;line-height:1.5;"><strong>Why chosen for this deal:</strong> ${s.rationale || s.why}</div>
           </div>
         `).join('')}
         <div style="margin-bottom:10px;margin-top:14px;padding:8px 10px;background:#eff6ff;border-radius:8px;border-left:3px solid #2563eb;">
@@ -566,10 +617,22 @@ async function runOrchestratorAnimation(deal) {
           <div style="margin-bottom:10px;padding:10px 12px;background:#eff6ff;border-radius:8px;border-left:3px solid #2563eb;">
             <div style="font-weight:700;font-size:0.78rem;color:#1e40af;">${s.icon} Step ${s.step}: ${s.name}</div>
             <div style="font-size:0.68rem;color:#78716c;margin-top:2px;">Produces: ${s.fields.join(', ')}</div>
-            <div style="background:#1e293b;color:#ffffff;border-radius:6px;padding:10px 12px;font-family:monospace;font-size:0.68rem;margin-top:6px;margin-bottom:6px;white-space:pre-wrap;line-height:1.5;">${s.query}</div>
-            <div style="font-size:0.68rem;color:#44403c;line-height:1.5;"><strong>Why:</strong> ${s.why}</div>
+            <div class="orch-code-block" style="margin-top:6px;margin-bottom:6px;">${s.query}</div>
+            <div style="font-size:0.68rem;color:#44403c;line-height:1.5;"><strong>Why chosen for this deal:</strong> ${s.rationale || s.why}</div>
           </div>
         `).join('')}
+        ${exclusionRationale.length > 0 ? `
+        <div style="margin-top:16px;margin-bottom:8px;padding:8px 10px;background:#fef3c7;border-radius:8px;border-left:3px solid #d97706;">
+          <div style="font-weight:700;font-size:0.74rem;color:#92400e;">🚫 Why these were not used (planner explanation)</div>
+          <div style="font-size:0.7rem;color:#57534e;margin-top:4px;">The planner did not select the following tools/agents for this deal. Reason from the LLM:</div>
+        </div>
+        ${exclusionRationale.map(ex => `
+          <div style="margin-bottom:8px;padding:8px 12px;background:#fffbeb;border-radius:6px;border:1px solid #fcd34d;font-size:0.72rem;">
+            <span style="font-weight:600;color:#92400e;">${friendlyName(ex.id)}</span>
+            <span style="color:#78716c;"> — ${ex.reason || 'Not required for this deal.'}</span>
+          </div>
+        `).join('')}
+        ` : ''}
       </div>`;
     setLiveOutput('📋 Structured Planner', planHtml);
     const plannerNode = cy.getElementById('planner');
@@ -614,6 +677,7 @@ async function runOrchestratorAnimation(deal) {
     // Simulate tool execution with enriched data visuals
     for (let i = 0; i < toolSteps.length; i++) {
         const tool = toolSteps[i];
+        setLiveOutputRunning(`${tool.icon} ${tool.name}`, `Extracting from ${tool.table}…`);
         const output = getToolOutput(tool.id);
         await wait(800);
 
@@ -622,7 +686,7 @@ async function runOrchestratorAnimation(deal) {
             <div style="font-weight:700;margin-bottom:4px;color:#155e75;">${tool.icon} ${tool.name}</div>
             <div style="font-size:0.68rem;color:#78716c;margin-bottom:2px;">Source: <code>${tool.table}</code> \u2022 Customer: <code>${custId}</code></div>
             <div style="font-size:0.7rem;color:#57534e;margin-bottom:6px;line-height:1.5;"><strong>Why:</strong> ${tool.why}</div>
-            <div style="background:#1e293b;color:#ffffff;border-radius:8px;padding:12px 14px;font-family:monospace;font-size:0.7rem;margin-bottom:8px;white-space:pre-wrap;line-height:1.6;"><span style="color:#7dd3fc;">-- Querying ${tool.table}</span>\n${tool.query}</div>
+            <div class="orch-code-block" style="margin-bottom:8px;"><span class="code-comment">-- Querying ${tool.table}</span>\n${tool.query}</div>
             <div style="font-size:0.72rem;color:#059669;font-weight:600;">\u2713 Query returned 1 row, ${tool.fields.length} fields extracted</div>
             <div style="font-weight:600;font-size:0.72rem;margin-top:8px;margin-bottom:2px;color:#155e75;">Extracted Data:</div>
             ${output.resultRows}
@@ -652,6 +716,8 @@ async function runOrchestratorAnimation(deal) {
     // PHASE 3: AGENT EXECUTION — Analysis & Processing
     // ════════════════════════════════════════════════════════
     if (elements.orchLog) elements.orchLog.textContent = `🤖 Dispatching ${agentSteps.length} analytical agents in parallel...`;
+    setOrchLoading(true, 'Agents analyzing…');
+    setLiveOutputRunning('🤖 Agents', 'Agents analyzing…');
 
     agentSteps.forEach((agent, i) => {
         cy.add({ data: { id: `agent_${i}`, label: `${agent.icon} ${agent.name}\nProcessing...`, rawName: `${agent.icon} ${agent.name}` }, classes: 'agent agent-active' });
@@ -711,7 +777,7 @@ async function runOrchestratorAnimation(deal) {
                     <div style="font-weight:700;margin-bottom:4px;color:#1e40af;">${agent.icon} ${agent.name}</div>
                     <div style="font-size:0.7rem;color:#57534e;margin-bottom:6px;line-height:1.5;"><strong>Purpose:</strong> ${agent.why}</div>
                     ${result.trace_value ? `<div style="display:inline-block;padding:4px 12px;border-radius:12px;font-size:0.74rem;font-weight:700;color:#1e40af;background:#eff6ff;margin-bottom:8px;">${result.trace_value}</div>` : ''}
-                    ${result.code_executed ? `<div style="font-weight:600;font-size:0.7rem;color:#475569;margin-bottom:4px;">Code Executed:</div><div style="background:#1e293b;color:#ffffff;border-radius:8px;padding:10px 12px;font-family:monospace;font-size:0.7rem;margin-bottom:10px;white-space:pre-wrap;line-height:1.5;">${result.code_executed}</div>` : `<div style="font-weight:600;font-size:0.7rem;color:#475569;margin-bottom:4px;">Operations:</div><div style="background:#1e293b;color:#ffffff;border-radius:8px;padding:10px 12px;font-family:monospace;font-size:0.7rem;margin-bottom:10px;white-space:pre-wrap;line-height:1.5;">${agent.query}</div>`}
+                    ${result.code_executed ? `<div style="font-weight:600;font-size:0.7rem;color:#475569;margin-bottom:4px;">Code Executed:</div><div class="orch-code-block" style="margin-bottom:10px;">${result.code_executed}</div>` : `<div style="font-weight:600;font-size:0.7rem;color:#475569;margin-bottom:4px;">Operations:</div><div class="orch-code-block" style="margin-bottom:10px;">${agent.query}</div>`}
                     ${result.data_used ? `<div style="font-size:0.7rem;color:#64748b;margin-bottom:8px;">\ud83d\udcc1 <strong>Data analyzed:</strong> ${result.data_used}</div>` : ''}
                     <div style="font-weight:600;font-size:0.72rem;color:#1e40af;margin-bottom:4px;">Findings:</div>
                     ${(result.findings || []).map(f => `<div style="padding:6px 8px;margin-bottom:4px;background:#f8fafc;border-radius:6px;border-left:3px solid #2563eb;font-size:0.78rem;line-height:1.5;">${f}</div>`).join('')}
@@ -724,6 +790,7 @@ async function runOrchestratorAnimation(deal) {
             }
         });
 
+        setOrchLoading(false);
         stopEdgeAnimation();
         cy.edges('.flowing').removeClass('flowing').addClass('active');
         if (elements.orchProgress) elements.orchProgress.style.width = '75%';
@@ -733,6 +800,7 @@ async function runOrchestratorAnimation(deal) {
         // PHASE 4: AGGREGATOR + GUARDRAILS + SYNTHESIS
         // ════════════════════════════════════════════════════════
         if (elements.orchLog) elements.orchLog.textContent = `⚡ Aggregating findings → Guardrails check → Final recommendation...`;
+        setOrchLoading(true, 'Synthesizing recommendation…');
 
         cy.add({ data: { id: 'guardrails', label: '🛡️ Guardrails\nValidating...', rawName: '🛡️ Guardrails' }, classes: 'guardrails' });
         cy.add({ data: { id: 'synth', label: '⚡ Synthesizer\nAggregating...', rawName: '⚡ Synthesizer', outputHtml: '<span class="typing-cursor"></span> Aggregating...' }, classes: 'synth' });
@@ -752,7 +820,7 @@ async function runOrchestratorAnimation(deal) {
             <div style="font-weight:700;margin-bottom:8px;color:#991b1b;">🛡️ Guardrails Check</div>
             <div style="padding:6px 0;"><span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:0.7rem;font-weight:700;color:${reds > 0 ? '#dc2626' : '#059669'};background:${reds > 0 ? '#fef2f2' : '#ecfdf5'}">${reds > 0 ? `${reds} RED FLAGS` : 'NO RED FLAGS'}</span></div>
             <div style="padding:6px 0;"><span style="display:inline-block;padding:2px 10px;border-radius:12px;font-size:0.7rem;font-weight:700;color:#d97706;background:#fffbeb">${ambers} AMBER FLAGS</span></div>
-            <div style="background:#1e293b;color:#ffffff;border-radius:8px;padding:10px 12px;font-family:monospace;font-size:0.7rem;margin-top:8px;margin-bottom:8px;white-space:pre-wrap;">if scenario.margin < regional_floor:\n    flag = RED → escalate\nif discount > 0.30:\n    flag = RED → require CFO\nif deprecated_sku:\n    flag = AMBER → suggest upgrade</div>
+            <div class="orch-code-block" style="margin-top:8px;margin-bottom:8px;">if scenario.margin &lt; regional_floor:\n    flag = RED → escalate\nif discount &gt; 0.30:\n    flag = RED → require CFO\nif deprecated_sku:\n    flag = AMBER → suggest upgrade</div>
             <div style="font-size:0.72rem;color:${reds > 0 ? '#dc2626' : '#059669'};font-weight:600;">→ ${reds > 0 ? 'Escalation may be required' : 'All guardrails passed'}</div>
           </div>`;
         const grNode = cy.getElementById('guardrails');
@@ -779,7 +847,7 @@ async function runOrchestratorAnimation(deal) {
             temperature: 0.4
         };
 
-        setLiveOutput('⚡ Synthesizer', '<span class="typing-cursor"></span> Generating recommendation...');
+        setLiveOutputRunning('⚡ Synthesizer', 'Synthesizing recommendation…');
 
         for await (const { content, error } of asyncLLM(`${baseUrl}/chat/completions`, {
             method: "POST",
@@ -805,6 +873,7 @@ async function runOrchestratorAnimation(deal) {
         }
 
         // ─── Finalize ───
+        setOrchLoading(false);
         stopEdgeAnimation();
         cy.edges('.flowing').removeClass('flowing').addClass('active');
         if (elements.orchProgress) elements.orchProgress.style.width = '100%';
@@ -820,6 +889,7 @@ async function runOrchestratorAnimation(deal) {
 
     } catch (e) {
         // ─── FALLBACK: Deterministic execution ───
+        setOrchLoading(false);
         stopEdgeAnimation();
         console.error("LLM Error:", e);
 

@@ -155,15 +155,19 @@
                                 <div class="orch-timeline-container">
                                     <div class="orch-timeline" id="orchProgress"></div>
                                 </div>
+                                <div id="orchLoading" class="orch-loading" style="display: none; pointer-events: none;" aria-live="polite">
+                                    <span class="spinner-border spinner-border-sm text-primary me-2" role="status"></span>
+                                    <span id="orchLoadingText">Working...</span>
+                                </div>
                                 <div class="orch-log" id="orchLog">Awaiting dispatch...</div>
                             </div>
                         </div>
                         <div class="live-output-panel" id="liveOutputPanel">
                             <h6 class="text-uppercase fw-bold mb-2">Live Output</h6>
+                            <p class="small text-muted mb-2">Click a node to see its output. Click graph background to return to current step.</p>
                             <h4 class="fw-bold mb-3" id="liveOutputTarget">Awaiting Execution</h4>
                             <div class="live-output-content p-3 rounded-3" id="liveOutputContent">
-                                <span class="text-muted"><i class="bi bi-lightning-charge me-1"></i> Agent outputs will
-                                    stream here. Click graph nodes to inspect.</span>
+                                <span class="text-muted"><i class="bi bi-lightning-charge me-1"></i> Outputs stream here. You can click any graph node to view its output at any time—even while the planner or agents are running.</span>
                             </div>
                         </div>
                     </div>

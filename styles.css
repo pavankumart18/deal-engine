@@ -1,3 +1,37 @@
+/* Code blocks in orchestrator live output — light theme for maximum readability */
+.orch-code-block {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    border: 1px solid #cbd5e1;
+}
+.orch-code-block .code-comment {
+    color: #475569 !important;
+    font-weight: 500;
+}
+.orch-code-block .code-keyword { color: #0369a1 !important; font-weight: 600; }
+.orch-code-block .code-string { color: #0d9488 !important; }
+
+/* Current running block in Live Output (right panel) — visible loading state */
+.orch-current-running {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid #93c5fd;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #1e40af;
+    font-weight: 600;
+}
+.orch-current-running .spinner-border { width: 1.5rem; height: 1.5rem; }
+
 :root {
     --bg-main: #ffffff;
     --bg-subtle: #f8fafc;
@@ -767,6 +801,19 @@ td strong {
     color: var(--text-muted) !important;
     font-size: 0.75rem;
 }
+
+.orch-loading {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    margin-top: 6px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--accent-blue);
+}
+.orch-loading .spinner-border-sm { width: 1rem; height: 1rem; }
 
 /* ═══════ LLM Output Typography ═══════ */
 #liveOutputContent h1,
