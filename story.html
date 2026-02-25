@@ -4,423 +4,537 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Anatomy of an Autonomous Deal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>The Deal Engine — A Data Story</title>
+    <meta name="description"
+        content="How an autonomous agent transforms fragmented enterprise data into intelligent deal recommendations across 100 opportunities.">
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
-        :root {
-            --bg-dark: #0f111a;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-blue: #3b82f6;
-            --accent-purple: #8b5cf6;
-            --red: #ef4444;
-            --green: #10b981;
-            --amber: #f59e0b;
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --serif: 'Playfair Display', Georgia, serif;
+            --sans: 'Inter', -apple-system, system-ui, sans-serif;
+            --mono: 'JetBrains Mono', Consolas, monospace;
+            --bg: #fafaf9;
+            --text: #1c1917;
+            --muted: #78716c;
+            --accent: #1d4ed8;
+            --accent-light: #eff6ff;
+            --border: #e7e5e4;
+            --card: #ffffff;
+            --red: #dc2626;
+            --amber: #d97706;
+            --green: #059669;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-            font-size: 18px;
+            font-family: var(--sans);
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .hero-bg {
-            position: absolute;
+        /* ─── Navigation ─── */
+        .story-nav {
+            position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
-            z-index: 1;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 250, 249, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            transition: box-shadow 0.3s;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        .story-nav.scrolled {
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .story-nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .story-nav .brand {
+            font-family: var(--serif);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .story-nav .back-link {
+            font-size: 0.82rem;
+            color: var(--muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .story-nav .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* ─── Hero ─── */
+        .hero {
+            padding: 160px 32px 100px;
+            text-align: center;
             max-width: 900px;
-            padding: 0 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            margin: 0 auto;
         }
 
         .hero-kicker {
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: var(--accent-blue);
-            font-size: 0.9rem;
+            color: var(--accent);
             margin-bottom: 24px;
-            display: block;
         }
 
         .hero h1 {
-            font-family: 'Fraunces', serif;
-            font-size: 5vw;
-            line-height: 1.1;
-            font-weight: 400;
-            margin-bottom: 30px;
-            background: linear-gradient(to right, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-family: var(--serif);
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 28px;
+            color: var(--text);
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 50px auto;
-            font-weight: 300;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            animation: bounce 2s infinite ease-in-out;
-            color: var(--text-muted);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .scroll-indicator svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0) translateX(-50%);
-            }
-
-            40% {
-                transform: translateY(-20px) translateX(-50%);
-            }
-
-            60% {
-                transform: translateY(-10px) translateX(-50%);
-            }
-        }
-
-        /* Scrollytelling Sections */
-        .section {
-            padding: 120px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            min-height: 80vh;
-        }
-
-        .section-content {
-            flex: 1;
-            padding-right: 60px;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .section-visual {
-            flex: 1;
-            position: relative;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
-        }
-
-        .section.visible .section-content {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .section.visible .section-visual {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .section-tag {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-purple);
-            font-weight: 600;
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .section h2 {
-            font-family: 'Fraunces', serif;
-            font-size: 3rem;
-            font-weight: 400;
-            margin-bottom: 24px;
-            line-height: 1.1;
-        }
-
-        .section p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 24px;
+        .hero-deck {
+            font-size: 1.2rem;
+            color: var(--muted);
             line-height: 1.7;
+            max-width: 680px;
+            margin: 0 auto 40px;
         }
 
-        /* Visual Components */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
+        .hero-meta {
+            font-size: 0.78rem;
+            color: #a8a29e;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
-        /* Data Particles Animation */
-        .data-visualization {
-            height: 400px;
-            position: relative;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            border: 1px dashed rgba(255, 255, 255, 0.1);
-            overflow: hidden;
+        .hero-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 48px auto 0;
+            border-radius: 2px;
         }
 
-        .particle {
-            position: absolute;
-            background: var(--accent-blue);
-            border-radius: 50%;
-            opacity: 0.6;
+        /* ─── Prose ─── */
+        .prose {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 32px;
         }
 
-        .anomaly-particle {
-            background: var(--red);
-            box-shadow: 0 0 10px var(--red);
-            animation: pulse-red 2s infinite;
+        .prose p {
+            font-size: 1.08rem;
+            line-height: 1.85;
+            margin-bottom: 1.6rem;
+            color: #44403c;
         }
 
-        @keyframes pulse-red {
-            0% {
-                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
-            }
+        .prose p.lead-graf {
+            font-size: 1.18rem;
+            color: var(--text);
         }
 
-        /* Interactive Timeline Tracker */
-        .deal-flow {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-top: 40px;
+        .prose p.lead-graf::first-letter {
+            font-family: var(--serif);
+            font-size: 3.8rem;
+            float: left;
+            line-height: 0.8;
+            margin: 6px 12px 0 0;
+            font-weight: 800;
+            color: var(--accent);
         }
 
-        .deal-flow::before {
-            content: '';
-            position: absolute;
-            top: 24px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            z-index: 1;
-        }
-
-        .flow-step {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* ─── Section Headers ─── */
+        .section-break {
             text-align: center;
-            gap: 12px;
-            width: 33%;
+            padding: 80px 32px 48px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .flow-dot {
-            width: 48px;
-            height: 48px;
-            background: var(--bg-dark);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
+        .section-break .number {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .section-break h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .section-break .subtitle {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        /* ─── Stat Cards ─── */
+        .stat-row {
+            max-width: 900px;
+            margin: 48px auto;
+            padding: 0 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .stat-card .big {
+            font-family: var(--serif);
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1.1;
+        }
+
+        .stat-card .big.accent {
+            color: var(--accent);
+        }
+
+        .stat-card .big.green {
+            color: var(--green);
+        }
+
+        .stat-card .big.amber {
+            color: var(--amber);
+        }
+
+        .stat-card .big.red {
+            color: var(--red);
+        }
+
+        .stat-card .label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        /* ─── Wide Cards / Panels ─── */
+        .wide-card {
+            max-width: 900px;
+            margin: 48px auto;
+            padding: 0 32px;
+        }
+
+        .wide-card-inner {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .wide-card-header {
+            padding: 24px 32px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .wide-card-header i {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .wide-card-header h3 {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .wide-card-body {
+            padding: 0;
+        }
+
+        .wide-card-body table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+        }
+
+        .wide-card-body th {
+            background: #f8f7f6;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted);
+            font-weight: 700;
+            padding: 12px 20px;
+            text-align: left;
+            border-bottom: 2px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .wide-card-body td {
+            padding: 12px 20px;
+            border-bottom: 1px solid #f5f4f3;
+            color: var(--text);
+            white-space: nowrap;
+        }
+
+        .wide-card-body tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ─── Pipeline Diagram ─── */
+        .pipeline {
+            max-width: 900px;
+            margin: 56px auto;
+            padding: 0 32px;
+        }
+
+        .pipeline-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0;
+            position: relative;
+        }
+
+        .pipeline-step {
+            text-align: center;
+            padding: 24px 12px;
+            position: relative;
+        }
+
+        .pipeline-step::after {
+            content: '→';
+            position: absolute;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #d6d3d1;
+        }
+
+        .pipeline-step:last-child::after {
+            display: none;
+        }
+
+        .pipeline-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: var(--accent-light);
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.3rem;
+            color: var(--accent);
+        }
+
+        .pipeline-step .step-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .pipeline-step .step-desc {
+            font-size: 0.68rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        /* ─── Pullquote ─── */
+        .pullquote {
+            max-width: 680px;
+            margin: 56px auto;
+            padding: 0 32px;
+            text-align: center;
+        }
+
+        .pullquote blockquote {
+            font-family: var(--serif);
+            font-size: 1.5rem;
             font-weight: 600;
-            color: var(--text-muted);
-            transition: all 0.3s;
-        }
-
-        .flow-step.active .flow-dot {
-            border-color: var(--accent-blue);
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-blue);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Decision Interface Visualization */
-        .decision-matrix {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .scenario-row {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .scenario-row:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateX(10px);
-        }
-
-        .scenario-row.recommended {
-            border-color: var(--accent-blue);
-            background: linear-gradient(90deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
-            box-shadow: inset 4px 0 0 var(--accent-blue);
-        }
-
-        .scenario-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .scenario-metrics {
-            display: flex;
-            gap: 30px;
-            text-align: right;
-        }
-
-        .metric strong {
-            display: block;
-            font-size: 1.1rem;
-            color: white;
-        }
-
-        .metric span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        /* Narrative Output Display */
-        .narrative-box {
-            font-family: 'Fraunces', serif;
-            font-size: 1.4rem;
             line-height: 1.5;
-            color: #cbd5e1;
-            padding: 40px;
-            border-left: 4px solid var(--accent-purple);
-            background: linear-gradient(90deg, rgba(139, 92, 246, 0.05) 0%, transparent 100%);
+            color: var(--text);
+            font-style: italic;
             position: relative;
+            padding: 0 24px;
         }
 
-        .narrative-box::before {
+        .pullquote blockquote::before {
             content: '"';
+            font-family: var(--serif);
+            font-size: 5rem;
             position: absolute;
-            top: 20px;
-            left: 10px;
-            font-size: 4rem;
-            color: rgba(139, 92, 246, 0.2);
+            left: -8px;
+            top: -24px;
+            color: var(--accent);
+            opacity: 0.2;
             line-height: 1;
-            font-family: inherit;
         }
 
-        .typewriter-text {
-            border-right: 2px solid;
-            width: 100%;
-            white-space: pre-wrap;
-            overflow: hidden;
-            animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+        /* ─── Rule Badges ─── */
+        .severity {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        /* Reverse Layout */
-        .section.reverse {
-            flex-direction: row-reverse;
+        .severity.red {
+            background: #fef2f2;
+            color: var(--red);
         }
 
-        .section.reverse .section-content {
-            padding-right: 0;
-            padding-left: 60px;
-            transform: translateX(30px);
+        .severity.amber {
+            background: #fffbeb;
+            color: var(--amber);
         }
 
-        .section.visible.reverse .section-content {
-            transform: translateX(0);
+        .severity.green {
+            background: #ecfdf5;
+            color: var(--green);
         }
 
-        @media (max-width: 900px) {
-            .section {
-                flex-direction: column !important;
-                padding: 60px 20px;
+        /* ─── Code Block ─── */
+        .code-block {
+            max-width: 680px;
+            margin: 32px auto;
+            padding: 0 32px;
+        }
+
+        .code-block pre {
+            background: #1e1e2e;
+            color: #cdd6f4;
+            border-radius: 12px;
+            padding: 24px 28px;
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            line-height: 1.7;
+            overflow-x: auto;
+        }
+
+        .code-block .filename {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        /* ─── Footer ─── */
+        .story-footer {
+            text-align: center;
+            padding: 80px 32px;
+            color: var(--muted);
+            font-size: 0.82rem;
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+        }
+
+        .story-footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ─── Fade-in Animation ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 24px 64px;
             }
 
-            .section-content {
-                padding: 0 !important;
-                margin-bottom: 40px;
+            .prose {
+                padding: 0 24px;
             }
 
-            .hero h1 {
-                font-size: 3rem;
+            .stat-row {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 0 24px;
+            }
+
+            .pipeline-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pipeline-step::after {
+                display: none;
+            }
+
+            .section-break {
+                padding: 56px 24px 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-row {
+                grid-template-columns: 1fr;
+            }
+
+            .pipeline-steps {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -428,213 +542,713 @@
 
 <body>
 
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <span class="hero-kicker">Data Audit Architecture</span>
-            <h1>The Anatomy of an Autonomous Deal</h1>
-            <p>How we generated a synthetic, chaotic commercial pipeline—and built an agent intelligent enough to
-                restructure it without human intervention.</p>
+    <!-- Navigation -->
+    <nav class="story-nav" id="storyNav">
+        <div class="story-nav-inner">
+            <a href="." class="brand">The Deal Engine</a>
+            <a href="index.html" class="back-link"><i class="bi bi-arrow-left"></i> Back to Dashboard</a>
         </div>
-        <div class="scroll-indicator">
-            <span>Scroll to Explore</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M12 5v14M19 12l-7 7-7-7" />
-            </svg>
-        </div>
-    </section>
+    </nav>
 
-    <!-- Part 1 -->
-    <section class="section">
-        <div class="section-content">
-            <span class="section-tag">Part 1. Generation</span>
-            <h2>Architecting Chaos</h2>
-            <p>To test an enterprise agent, pristine data is useless. We needed to simulate the absolute friction of a
-                modern global commercial deal desk.</p>
-            <p>We programmatically generated 100 full diagnostic opportunities across 9 regions, natively generating
-                instruments ranging from $75K to $450K. But more importantly, we injected over <strong>20 critical edge
-                    cases</strong>.</p>
-            <p>We hid "Ghost Contracts" (expired but marked active), misaligned currencies (CAD deals attempting to pull
-                EUR pricing), and deliberately aggressive sales discounting aimed at triggering CFO escalations.</p>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- HERO -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <header class="hero">
+        <div class="hero-kicker">An Analytics Story</div>
+        <h1>How an Autonomous Agent Turns Fragmented Data Into Intelligent Deal Recommendations</h1>
+        <p class="hero-deck">
+            Across five enterprise systems, 100 active opportunities, and 227 governance flags — a machine reads what
+            humans miss. This is the story of a deal structuring engine built to surface risk, enforce compliance, and
+            recommend the right offer, every time.
+        </p>
+        <p class="hero-meta">February 2026 · Deal Structuring Analytics</p>
+        <div class="hero-divider"></div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CHAPTER 1 — THE PROBLEM -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section-break reveal">
+        <div class="number">Chapter I</div>
+        <h2>The Problem: Death by a Thousand Spreadsheets</h2>
+        <p class="subtitle">Enterprise deal desks sit atop a mountain of disconnected data — and most of it never gets
+            read.</p>
+    </div>
+
+    <div class="prose reveal">
+        <p class="lead-graf">Every quarter, commercial operations teams across the medical device and diagnostics
+            industry face the same ritual: a deal arrives, a sales representative submits a discount request, and
+            somewhere between the CRM, the ERP, the installed base registry, the contract archive, and the service log —
+            the truth gets lost.</p>
+        <p>The information exists. It always does. Buried inside SAP pricing masters that haven't been updated since the
+            last fiscal year. Hidden in contract end-dates that expired six months ago but still show "Active" in the
+            system. Scattered across utilization indices that scream "this customer barely uses the instrument they have
+            — why are we quoting them a second one?"</p>
+        <p>The typical deal desk analyst has 10 minutes per opportunity. At 100 opportunities per quarter, that's
+            roughly 17 hours of work crammed into a process where a single overlooked flag — a deprecated SKU, a
+            currency mismatch between CRM and ERP, a margin that dips below the regional floor — can cost the
+            organization hundreds of thousands of euros in unrecoverable margin leakage.</p>
+        <p>This project asked a pointed question: <strong>What if an autonomous agent could read every table, enforce
+                every rule, and generate every recommendation — before the analyst even opens the file?</strong></p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CHAPTER 2 — THE DATA -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section-break reveal">
+        <div class="number">Chapter II</div>
+        <h2>Five Tables. One Hundred Customers. Zero Mercy.</h2>
+        <p class="subtitle">The engine ingests data from five distinct enterprise sources — each representing a
+            different dimension of the commercial relationship.</p>
+    </div>
+
+    <div class="stat-row reveal">
+        <div class="stat-card">
+            <div class="big accent">5</div>
+            <div class="label">Source Tables</div>
         </div>
-        <div class="section-visual">
-            <div class="glass-card">
-                <div class="data-visualization" id="particle-container">
-                    <!-- Particles generated by JS -->
-                </div>
-                <div
-                    style="margin-top: 20px; display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.9rem;">
-                    <span>Normal Transaction Base</span>
-                    <span style="color: var(--red); display: flex; align-items: center; gap: 8px;">
-                        <div
-                            style="width:8px;height:8px;background:var(--red);border-radius:50%;box-shadow:0 0 10px var(--red);">
-                        </div>
-                        Injected Anomalies
-                    </span>
-                </div>
+        <div class="stat-card">
+            <div class="big">100</div>
+            <div class="label">Opportunities</div>
+        </div>
+        <div class="stat-card">
+            <div class="big">100</div>
+            <div class="label">Contracts</div>
+        </div>
+        <div class="stat-card">
+            <div class="big">9</div>
+            <div class="label">Regions</div>
+        </div>
+        <div class="stat-card">
+            <div class="big">6</div>
+            <div class="label">Customer Segments</div>
+        </div>
+    </div>
+
+    <div class="prose reveal">
+        <p>The dataset mirrors the operational reality of a mid-sized diagnostics commercial operation spanning the
+            United States, Germany, the United Kingdom, France, Spain, Canada, the Netherlands, Italy, and Switzerland.
+        </p>
+    </div>
+
+    <!-- Source Tables Panel -->
+    <div class="wide-card reveal">
+        <div class="wide-card-inner">
+            <div class="wide-card-header">
+                <i class="bi bi-database"></i>
+                <h3>Source Data Architecture</h3>
+            </div>
+            <div class="wide-card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Table</th>
+                            <th>Records</th>
+                            <th>Key Fields</th>
+                            <th>System of Origin</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Opportunities</strong></td>
+                            <td>100</td>
+                            <td>OPP ID, Customer, SKU, Discount %, Stage</td>
+                            <td>CRM (Salesforce)</td>
+                            <td>Active pipeline with pricing requests</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SAP Pricing</strong></td>
+                            <td>100</td>
+                            <td>SKU, List Price, Standard Cost, Deprecated Flag</td>
+                            <td>ERP (SAP)</td>
+                            <td>Official pricing & cost basis</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Installed Base</strong></td>
+                            <td>100</td>
+                            <td>Customer ID, SKU, Install Year, Utilization Index</td>
+                            <td>Asset Registry</td>
+                            <td>What the customer already owns</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contracts</strong></td>
+                            <td>100</td>
+                            <td>Contract ID, Start/End Date, Status, Service Level</td>
+                            <td>Contract Management</td>
+                            <td>Service agreement status</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Service Cases</strong></td>
+                            <td>100</td>
+                            <td>Case ID, Cases/12m, Resolution Days, SLA Breach %</td>
+                            <td>Service Desk</td>
+                            <td>Instrument reliability & support history</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Part 2 -->
-    <section class="section reverse">
-        <div class="section-content">
-            <span class="section-tag">Part 2. Governance Logic</span>
-            <h2>The Mathematics of Escalation</h2>
-            <p>The core agent operates purely on deterministic rules. As it ingests the chaotic datasets, it normalizes
-                currencies and computes baseline economics instantly.</p>
-            <p>Instead of merely rejecting bad deals, it dynamically generates three strategic paths per opportunity:
-                <strong>Win Now</strong>, <strong>Balanced</strong>, and <strong>Value-Based</strong>.</p>
-            <p>Watch how it evaluates HealthCenter 0 (OPP-2000). The sales rep selected Scenario A for its 29% discount
-                to secure the bid. The agent detected a European margin floor violation (sub-33%), threw a RED severity
-                flag, and autonomously pivoted to Scenario B.</p>
-        </div>
-        <div class="section-visual">
-            <div class="glass-card">
-                <h3 style="margin-bottom: 24px; font-weight: 500;">HealthCenter 0 Opportunity Assessment</h3>
-                <div class="decision-matrix">
-                    <div class="scenario-row">
-                        <div class="scenario-name" style="color: var(--text-muted);">Scenario A <br><span
-                                style="font-size:0.8rem;font-weight:400;color:var(--red);">Violation: 10% Margin</span>
-                        </div>
-                        <div class="scenario-metrics">
-                            <div class="metric"><strong>29%</strong><span>Disc.</span></div>
-                            <div class="metric"><strong>No</strong><span>Escalate</span></div>
-                        </div>
-                    </div>
-                    <div class="scenario-row recommended">
-                        <div class="scenario-name">Scenario B <br><span
-                                style="font-size:0.8rem;font-weight:400;color:var(--accent-blue);">Agent Endorsed</span>
-                        </div>
-                        <div class="scenario-metrics">
-                            <div class="metric"><strong>36.3%</strong><span>Margin</span></div>
-                            <div class="metric"><strong>€245K</strong><span>Profit</span></div>
-                        </div>
-                    </div>
-                    <div class="scenario-row">
-                        <div class="scenario-name" style="color: var(--text-muted);">Scenario C <br><span
-                                style="font-size:0.8rem;font-weight:400;">Excessive Risk</span></div>
-                        <div class="scenario-metrics">
-                            <div class="metric"><strong>41.1%</strong><span>Margin</span></div>
-                            <div class="metric"><strong>€378K</strong><span>Profit</span></div>
-                        </div>
-                    </div>
-                </div>
+    <div class="prose reveal">
+        <p>Each table is loaded, cross-referenced, and normalized at ingestion. The opportunities table holds the sales
+            pipeline — SKUs being quoted, discount levels being requested, contract term lengths, and competitive
+            pressure signals. It is then joined to the SAP pricing master to derive instrument-level economics: list
+            price, standard cost, and the net price after discounting.</p>
+        <p>But the real power emerges when you cross tables. A customer requesting a 24% instrument discount might seem
+            acceptable in isolation. But cross-reference against their installed base — a DX-Legacy instrument from 2018
+            with a utilization index of 0.11 — and a different picture emerges. Or check their contract: end-date three
+            months ago, still marked "Active." Ghost contracts. The kind of data debt that compounds silently until a
+            CFO asks why projected margins never materialize.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CHAPTER 3 — THE ENGINE -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section-break reveal">
+        <div class="number">Chapter III</div>
+        <h2>The Engine: Seven Stages of Autonomous Analysis</h2>
+        <p class="subtitle">From raw CSV to executive-ready approval packet in under three seconds.</p>
+    </div>
+
+    <div class="pipeline reveal">
+        <div class="pipeline-steps">
+            <div class="pipeline-step">
+                <div class="pipeline-icon"><i class="bi bi-cloud-download"></i></div>
+                <div class="step-title">Ingest</div>
+                <div class="step-desc">Load 5 CSVs from enterprise systems</div>
+            </div>
+            <div class="pipeline-step">
+                <div class="pipeline-icon"><i class="bi bi-funnel"></i></div>
+                <div class="step-title">Normalize</div>
+                <div class="step-desc">Clean, validate, produce Parquet snapshots</div>
+            </div>
+            <div class="pipeline-step">
+                <div class="pipeline-icon"><i class="bi bi-calculator"></i></div>
+                <div class="step-title">Economics</div>
+                <div class="step-desc">Derive baseline revenue, cost, and margin</div>
+            </div>
+            <div class="pipeline-step">
+                <div class="pipeline-icon"><i class="bi bi-layers"></i></div>
+                <div class="step-title">Scenarios</div>
+                <div class="step-desc">Generate 3 structured offers per deal</div>
+            </div>
+            <div class="pipeline-step">
+                <div class="pipeline-icon"><i class="bi bi-shield-check"></i></div>
+                <div class="step-title">Governance</div>
+                <div class="step-desc">Apply 8+ rules, flag violations</div>
+            </div>
+            <div class="pipeline-step">
+                <div class="pipeline-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                <div class="step-title">Risk & Recommend</div>
+                <div class="step-desc">Score risk, select best scenario</div>
+            </div>
+            <div class="pipeline-step">
+                <div class="pipeline-icon"><i class="bi bi-file-earmark-check"></i></div>
+                <div class="step-title">Deliver</div>
+                <div class="step-desc">Produce approval packets & UI summary</div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Part 3 -->
-    <section class="section">
-        <div class="section-content">
-            <span class="section-tag">Part 3. Explainability</span>
-            <h2>Synthesizing The Narrative</h2>
-            <p>An algorithm that enforces limits is a tool. An agent that explains its reasoning to an executive is a
-                partner.</p>
-            <p>Once the mathematical recommendation is secured, the final engine layer translates the specific
-                variables—margins, regional currencies, audit rule IDs—into a seamless executive narrative.</p>
-            <p>This allows the final JSON packet to be routed directly to a dashboard or a VP's inbox, proving not just
-                what to do, but <em>why</em> the autonomous engine chose to do it.</p>
-        </div>
-        <div class="section-visual">
-            <div class="glass-card">
-                <div class="narrative-box">
-                    Recommending Scenario B for HealthCenter 0 to maintain a 36.3% margin and generate €245.6K in
-                    lifetime gross profit. Scenario A provides highest win probability but violates regional margin
-                    floor policy.
-                </div>
-                <div class="deal-flow" id="timeline">
-                    <div class="flow-step active">
-                        <div class="flow-dot">1</div>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);">Ingest & Flag</span>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-dot">2</div>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);">Structure</span>
-                    </div>
-                    <div class="flow-step">
-                        <div class="flow-dot">3</div>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);">Narrative Payload</span>
-                    </div>
-                </div>
+    <div class="prose reveal">
+        <p class="lead-graf">Stage one is deceptively simple: read five CSV files. But what happens next is where the
+            intelligence lives. The engine joins the opportunities table against SAP pricing to construct baseline
+            economics — instrument revenue (after discounting), consumables revenue (projected annually over the
+            contract term), and service revenue. A total cost basis is derived from standard costs, consumable cost
+            ratios, and service delivery costs.</p>
+        <p>With the economics established, the engine generates exactly three deal scenarios for each of the 100
+            opportunities — 300 scenarios in total:</p>
+    </div>
+
+    <div class="wide-card reveal">
+        <div class="wide-card-inner">
+            <div class="wide-card-header">
+                <i class="bi bi-layers"></i>
+                <h3>Scenario Generation Logic</h3>
+            </div>
+            <div class="wide-card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Strategy</th>
+                            <th>Discount Approach</th>
+                            <th>Term</th>
+                            <th>Objective</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>A — Win Now</strong></td>
+                            <td>Aggressive</td>
+                            <td>Requested + 5% additional</td>
+                            <td>Same as requested</td>
+                            <td>Maximize win probability</td>
+                        </tr>
+                        <tr>
+                            <td><strong>B — Balanced</strong></td>
+                            <td>Moderate</td>
+                            <td>Requested discount, 10% service reduction</td>
+                            <td>Same as requested</td>
+                            <td>Balance margin and competitiveness</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C — Value-Based</strong></td>
+                            <td>Conservative</td>
+                            <td>Requested − 5%, 20% service reduction</td>
+                            <td>+1 year extension</td>
+                            <td>Maximize lifetime profit</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </section>
+    </div>
+
+    <div class="prose reveal">
+        <p>Each scenario is then evaluated against a configurable set of governance rules. The engine operates like a
+            compliance analyst with perfect memory — it never forgets to check, never overlooks a field, never gets
+            tired at opportunity number 87.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CHAPTER 4 — GOVERNANCE -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section-break reveal">
+        <div class="number">Chapter IV</div>
+        <h2>The Governance Gauntlet: 227 Flags Across 100 Deals</h2>
+        <p class="subtitle">Every opportunity is evaluated against eight rule families — from margin floors to expired
+            contracts.</p>
+    </div>
+
+    <div class="stat-row reveal">
+        <div class="stat-card">
+            <div class="big red">8</div>
+            <div class="label">RED Flags</div>
+        </div>
+        <div class="stat-card">
+            <div class="big amber">119</div>
+            <div class="label">AMBER Flags</div>
+        </div>
+        <div class="stat-card">
+            <div class="big green">100</div>
+            <div class="label">GREEN (Compliant)</div>
+        </div>
+        <div class="stat-card">
+            <div class="big">227</div>
+            <div class="label">Total Issues Logged</div>
+        </div>
+    </div>
+
+    <div class="wide-card reveal">
+        <div class="wide-card-inner">
+            <div class="wide-card-header">
+                <i class="bi bi-shield-exclamation"></i>
+                <h3>Governance Rules Engine</h3>
+            </div>
+            <div class="wide-card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rule ID</th>
+                            <th>Severity</th>
+                            <th>Description</th>
+                            <th>Threshold</th>
+                            <th>Recommended Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>R_MISSING_COST</code></td>
+                            <td><span class="severity red">RED</span></td>
+                            <td>Standard cost missing from SAP master</td>
+                            <td>Must be > 0</td>
+                            <td>Update SAP master data</td>
+                        </tr>
+                        <tr>
+                            <td><code>R_NEG_MARGIN</code></td>
+                            <td><span class="severity red">RED</span></td>
+                            <td>Deal produces negative gross margin</td>
+                            <td>Must be > 0%</td>
+                            <td>Reject or restructure</td>
+                        </tr>
+                        <tr>
+                            <td><code>R_LOW_MARGIN</code></td>
+                            <td><span class="severity red">RED</span></td>
+                            <td>Margin below regional floor</td>
+                            <td>33–36% by region</td>
+                            <td>Increase price or bundle</td>
+                        </tr>
+                        <tr>
+                            <td><code>R_HIGH_DISC</code></td>
+                            <td><span class="severity red">RED</span></td>
+                            <td>Discount exceeds hard cap of 30%</td>
+                            <td>≤ 30%</td>
+                            <td>Require CFO approval</td>
+                        </tr>
+                        <tr>
+                            <td><code>R_MED_DISC</code></td>
+                            <td><span class="severity amber">AMBER</span></td>
+                            <td>Discount between 20–30%</td>
+                            <td>≤ 20%</td>
+                            <td>Require VP approval</td>
+                        </tr>
+                        <tr>
+                            <td><code>R_DEPRECATED_SKU</code></td>
+                            <td><span class="severity amber">AMBER</span></td>
+                            <td>Opportunity references a deprecated product</td>
+                            <td>Must not be deprecated</td>
+                            <td>Suggest current model upgrade</td>
+                        </tr>
+                        <tr>
+                            <td><code>R_CURR_MISMATCH</code></td>
+                            <td><span class="severity amber">AMBER</span></td>
+                            <td>Currency differs between CRM and ERP</td>
+                            <td>Must match</td>
+                            <td>Align currencies before quoting</td>
+                        </tr>
+                        <tr>
+                            <td><code>R_EXPIRED_ACTIVE</code></td>
+                            <td><span class="severity amber">AMBER</span></td>
+                            <td>Contract past end date but marked Active</td>
+                            <td>Active date must be future</td>
+                            <td>Close out or renew in CRM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="prose reveal">
+        <p>The governance engine is the heart of the system. It evaluates every opportunity against eight distinct rule
+            families, cross-referencing data across all five source tables. Regional margin floors are not uniform — the
+            European Union floor is 33%, the US floor is 36%. A deal that passes in the Netherlands may fail in New
+            York.</p>
+        <p>Consider a deal where a sales representative requests a 24% instrument discount. Rule <code>R_MED_DISC</code>
+            flags this as AMBER — the discount exceeds the 20% threshold for standard authority. The approval now routes
+            to the VP of Sales. But the same opportunity also references a SKU marked as deprecated in the SAP pricing
+            master — <code>R_DEPRECATED_SKU</code> fires, adding a second AMBER flag. And when the engine
+            cross-references the CRM quote currency (CAD) against the SAP master currency (EUR), a third flag emerges:
+            <code>R_CURR_MISMATCH</code>.</p>
+        <p>Each rule evaluation generates an entry in the immutable <strong>audit trail</strong> — a JSONL file
+            containing the rule ID, the input values at evaluation time, and a UUID-stamped timestamp. If a regulator,
+            an auditor, or a deal desk manager asks "why was this deal flagged?" — the answer is traceable to the exact
+            data point, rule, and moment.</p>
+    </div>
+
+    <div class="pullquote reveal">
+        <blockquote>The engine doesn't just flag problems. It explains them, traces them, and tells you exactly what to
+            do about each one.</blockquote>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CHAPTER 5 — RECOMMENDATIONS -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section-break reveal">
+        <div class="number">Chapter V</div>
+        <h2>The Recommendation: Machine Judgment at Scale</h2>
+        <p class="subtitle">For each opportunity, the engine selects the optimal scenario — or escalates when no
+            compliant path exists.</p>
+    </div>
+
+    <div class="stat-row reveal">
+        <div class="stat-card">
+            <div class="big accent">300</div>
+            <div class="label">Scenarios Evaluated</div>
+        </div>
+        <div class="stat-card">
+            <div class="big green">100</div>
+            <div class="label">Recommendations Made</div>
+        </div>
+        <div class="stat-card">
+            <div class="big">90%</div>
+            <div class="label">Avg Confidence Score</div>
+        </div>
+    </div>
+
+    <div class="prose reveal">
+        <p class="lead-graf">The recommendation engine follows a precise decision hierarchy. First, it filters the three
+            scenarios to identify which ones are <em>compliant</em> — meaning they don't trigger any RED-level
+            governance violations. RED violations include negative margins, margins below the regional floor, and
+            discounts exceeding the 30% hard cap.</p>
+        <p>Among compliant scenarios, the engine selects the one that maximizes <strong>lifetime gross profit</strong> —
+            the total revenue minus total cost over the full contract term. This isn't just about margin percentage;
+            it's about absolute economic value. A deal with a 36% margin on €1.2M of revenue is worth more than a 48%
+            margin on €200K.</p>
+        <p>When no scenario passes the compliance filter, the engine escalates. It selects the highest-margin option
+            available and marks the recommendation with <code>escalation_required: true</code>. These deals require CFO
+            or executive sign-off and are routed accordingly through the approval workflow.</p>
+    </div>
+
+    <div class="wide-card reveal">
+        <div class="wide-card-inner">
+            <div class="wide-card-header">
+                <i class="bi bi-lightbulb"></i>
+                <h3>Case Study: The Margin Floor Flip</h3>
+            </div>
+            <div class="wide-card-body" style="padding: 28px 32px;">
+                <p style="font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 16px;">
+                    <strong>OPP-2000 — HealthCenter 0 (Netherlands)</strong>
+                </p>
+                <p style="font-size: 0.88rem; line-height: 1.7; color: #57534e; margin-bottom: 16px;">
+                    Scenario A offers the highest win probability — the most aggressive discount, the shortest path to a
+                    signed contract. But at a 10.0% gross margin, it craters below the EU floor of 33%. The engine
+                    rejects Scenario A and recommends Scenario B instead: a balanced approach yielding 36.3% margin and
+                    €245.6K in lifetime gross profit. Three AMBER flags remain (high discount, deprecated SKU, currency
+                    mismatch), but the deal is compliant and routes to VP Sales for approval.
+                </p>
+                <p style="font-size: 0.82rem; color: var(--accent); font-weight: 600;"><i class="bi bi-quote me-1"></i>
+                    "Scenario A provides highest win probability but violates margin floor policy. Scenario B
+                    recommended instead to maintain compliance."</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CHAPTER 6 — RISK SCORING -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section-break reveal">
+        <div class="number">Chapter VI</div>
+        <h2>Risk Scoring: Three Dimensions of Deal Health</h2>
+        <p class="subtitle">Every deal is scored across win probability, margin integrity, and compliance posture.</p>
+    </div>
+
+    <div class="prose reveal">
+        <p>The risk model evaluates each opportunity across three independent dimensions:</p>
+    </div>
+
+    <div class="wide-card reveal">
+        <div class="wide-card-inner">
+            <div class="wide-card-header">
+                <i class="bi bi-speedometer2"></i>
+                <h3>Risk Dimensions</h3>
+            </div>
+            <div class="wide-card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Inputs</th>
+                            <th>Low</th>
+                            <th>Medium</th>
+                            <th>High</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Win Risk</strong></td>
+                            <td>Competitor pressure + discount depth</td>
+                            <td>Score < 3</td>
+                            <td>Score 3–5</td>
+                            <td>Score ≥ 6</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Margin Risk</strong></td>
+                            <td>Baseline gross margin %</td>
+                            <td>≥ 45%</td>
+                            <td>35–45%</td>
+                            <td>
+                                < 35%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compliance Risk</strong></td>
+                            <td>Count of RED-severity issues</td>
+                            <td>Zero RED flags</td>
+                            <td>—</td>
+                            <td>Any RED flag</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="prose reveal">
+        <p>The win risk score captures competitive dynamics. A deal facing "High" competitor pressure with a discount
+            below 10% is at maximum risk of being lost — the customer has alternatives and we aren't pricing to win. The
+            margin risk dimension ensures that even winnable deals maintain economic viability. And compliance risk
+            serves as the hard stop: any deal with a RED-level governance violation is immediately flagged for
+            escalation regardless of its commercial attractiveness.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CHAPTER 7 — OUTPUTS -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section-break reveal">
+        <div class="number">Chapter VII</div>
+        <h2>The Outputs: From Data to Decision</h2>
+        <p class="subtitle">The engine produces 12 output artifacts — from normalized data snapshots to executive-ready
+            approval packets.</p>
+    </div>
+
+    <div class="wide-card reveal">
+        <div class="wide-card-inner">
+            <div class="wide-card-header">
+                <i class="bi bi-folder2-open"></i>
+                <h3>Output Artifacts</h3>
+            </div>
+            <div class="wide-card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Artifact</th>
+                            <th>Format</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>normalized_*.parquet</code></td>
+                            <td>Parquet × 5</td>
+                            <td>Cleaned, validated snapshots of all 5 source tables</td>
+                        </tr>
+                        <tr>
+                            <td><code>scenarios.csv</code></td>
+                            <td>CSV (300 rows)</td>
+                            <td>3 structured deal scenarios per opportunity</td>
+                        </tr>
+                        <tr>
+                            <td><code>issues_log.csv</code></td>
+                            <td>CSV (227 rows)</td>
+                            <td>Every governance flag with severity, rule, and action</td>
+                        </tr>
+                        <tr>
+                            <td><code>opportunity_risk_scores.csv</code></td>
+                            <td>CSV (100 rows)</td>
+                            <td>Win, margin, and compliance risk per deal</td>
+                        </tr>
+                        <tr>
+                            <td><code>recommended_offer.csv</code></td>
+                            <td>CSV (100 rows)</td>
+                            <td>Best scenario selection with rationale</td>
+                        </tr>
+                        <tr>
+                            <td><code>approval_packets.jsonl</code></td>
+                            <td>JSONL</td>
+                            <td>Complete approval-ready packet per deal</td>
+                        </tr>
+                        <tr>
+                            <td><code>audit_trail.jsonl</code></td>
+                            <td>JSONL</td>
+                            <td>Immutable log of every rule evaluation</td>
+                        </tr>
+                        <tr>
+                            <td><code>ui_summary.json</code></td>
+                            <td>JSON</td>
+                            <td>Pre-rendered summary powering this dashboard</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="prose reveal">
+        <p>The final enrichment layer adds executive-narrative summaries to every deal. For deals where an LLM is
+            available, the narrative is generated by a language model prompted with the full deal context. When running
+            offline, a deterministic template engine produces equally precise summaries — calculating
+            currency-appropriate profit figures, referencing specific rule violations, and articulating exactly why one
+            scenario was chosen over another.</p>
+        <p>The confidence score reflects the engine's own assessment of recommendation quality: deals with no red flags
+            and margins above the floor score 90%. Deals requiring escalation score 45%. The score is visible in the
+            dashboard, giving deal desk managers an immediate signal of which deals need human attention.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CHAPTER 8 — THE UI -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section-break reveal">
+        <div class="number">Chapter VIII</div>
+        <h2>The Interface: Where Data Becomes Action</h2>
+        <p class="subtitle">A single-page dashboard surfaces every insight, every flag, every recommendation — with full
+            traceability to source.</p>
+    </div>
+
+    <div class="prose reveal">
+        <p class="lead-graf">The dashboard is designed for the analyst who has 30 seconds, not 30 minutes. Each
+            opportunity appears as a card showing the customer name, region, and risk posture at a glance. Clicking "Run
+            Scenario" triggers the agent orchestrator — a live visualization showing the AI system's decision flow in
+            real time.</p>
+        <p>The orchestrator dispatches five parallel agents: a <strong>Data Audit Agent</strong> that validates source
+            data integrity, a <strong>Scenario Modeler</strong> that evaluates the three offer structures, a
+            <strong>Risk Analyst</strong> that scores multi-dimensional risk, a <strong>Compliance Agent</strong> that
+            enforces governance rules, and a <strong>Narrative Agent</strong> that generates the executive summary.
+            Their outputs converge in a final synthesizer that produces the unified recommendation.</p>
+        <p>Below the orchestrator, the full deal dashboard unfolds: metric cards showing complexity status and
+            confidence scores. A scenario comparison table with margin percentages and lifetime profit projections. An
+            issues summary with severity-coded flags and actionable remediation steps. And an executive narrative that
+            reads like a deal memo, not a data dump.</p>
+        <p>Every insight links back to the audit trail. Every recommendation can be traced to the exact governance rule,
+            the exact data field, the exact value that triggered the decision. This is not a black box — it is a glass
+            box.</p>
+    </div>
+
+    <div class="pullquote reveal">
+        <blockquote>One hundred deals. Five source systems. Three hundred scenarios. Two hundred twenty-seven governance
+            flags. Zero human readings missed. This is what autonomous deal intelligence looks like.</blockquote>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CHAPTER 9 — WHAT THIS MEANS -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div class="section-break reveal">
+        <div class="number">Chapter IX</div>
+        <h2>What This Means</h2>
+        <p class="subtitle">The implications for commercial operations, regulatory compliance, and enterprise AI
+            adoption.</p>
+    </div>
+
+    <div class="prose reveal">
+        <p class="lead-graf">This engine is not a prototype. It is a working system that ingests real-world data
+            structures, applies enterprise-grade governance rules, and produces auditable, explainable recommendations
+            at scale. It demonstrates three capabilities that are typically discussed in theory but rarely shown in
+            practice:</p>
+        <p><strong>1. Cross-system data reconciliation.</strong> The engine doesn't just read one table — it
+            cross-references five. Currency mismatches between CRM and ERP, deprecated SKUs still being quoted,
+            contracts that expired months ago — these are the kinds of issues that live in the gaps between systems. The
+            engine finds them because it reads everything.</p>
+        <p><strong>2. Policy-aware recommendation.</strong> The engine doesn't simply maximize revenue. It recommends
+            the best compliant scenario — respecting regional margin floors, discount authority limits, and tender
+            regulations. When no compliant path exists, it escalates transparently and explains why.</p>
+        <p><strong>3. Full audit traceability.</strong> Every decision is traceable. Every flag is explainable. Every
+            recommendation links to the specific data value, governance rule, and timestamp that produced it. In
+            regulated industries — medical devices, pharmaceuticals, financial services — this is not a nice-to-have. It
+            is a requirement.</p>
+        <p>The gap between "data-driven organization" and "organization that actually uses its data" remains enormous.
+            Most enterprises have more data than they know what to do with. The problem was never access — it was
+            comprehension. An autonomous agent that can read, reconcile, evaluate, and explain reduces that gap from
+            months to seconds.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="story-footer">
+        <p style="margin-bottom: 8px;"><strong>Autonomous Deal Structuring Agent</strong></p>
+        <p>Built with Python, Cytoscape.js, and a conviction that enterprise data deserves better than pivot tables.</p>
+        <p style="margin-top: 16px;"><a href="index.html">← Return to Dashboard</a></p>
+    </footer>
 
     <script>
-        // Scroll Animation Logic
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.3
-        };
-
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-
-                    // Trigger timeline animation if it's the 3rd section
-                    if (entry.target.querySelector('#timeline')) {
-                        animateTimeline();
-                    }
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.section').forEach(section => {
-            observer.observe(section);
+        // Navbar shadow on scroll
+        const nav = document.getElementById('storyNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 10);
         });
-
-        // Time line sequential animation
-        function animateTimeline() {
-            const steps = document.querySelectorAll('.flow-step');
-            setTimeout(() => steps[1].classList.add('active'), 800);
-            setTimeout(() => steps[2].classList.add('active'), 1600);
-        }
-
-        // Particle System for Part 1 Data Visual
-        function createParticles() {
-            const container = document.getElementById('particle-container');
-            const width = container.offsetWidth;
-            const height = container.offsetHeight;
-
-            for (let i = 0; i < 60; i++) {
-                const particle = document.createElement('div');
-                const isAnomaly = Math.random() > 0.85; // 15% chance of anomaly
-
-                particle.className = `particle ${isAnomaly ? 'anomaly-particle' : ''}`;
-
-                const size = isAnomaly ? Math.random() * 6 + 4 : Math.random() * 4 + 2;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-
-                // Random drift animation
-                const duration = Math.random() * 20 + 10;
-                const xMove = (Math.random() - 0.5) * 100;
-                const yMove = (Math.random() - 0.5) * 100;
-
-                particle.animate([
-                    { transform: 'translate(0, 0)' },
-                    { transform: `translate(${xMove}px, ${yMove}px)` }
-                ], {
-                    duration: duration * 1000,
-                    iterations: Infinity,
-                    direction: 'alternate',
-                    easing: 'ease-in-out'
-                });
-
-                container.appendChild(particle);
-            }
-        }
-
-        // Initialize particles
-        window.onload = createParticles;
     </script>
+
 </body>
 
 </html>
